@@ -10,7 +10,7 @@ const Lending = () => {
 			<MainSection />
 			<Tokenomics />
 			<RoadMap />
-			<Investors />
+			{/* <Investors /> */}
 			<GlobalCommunity />
 		</div>
 	)

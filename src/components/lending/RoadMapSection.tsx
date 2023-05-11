@@ -67,16 +67,21 @@ const RoadMap = () => {
 	const lists = [
 		{ id: 1, title: 'April', list: april },
 		{ id: 2, title: 'May', list: may },
-		{ id: 3, title: 'Lune', list: june },
+		{ id: 3, title: 'June', list: june },
 		{ id: 4, title: 'Q3-Q4', list: quartal },
 		{ id: 5, title: '2024', list: year },
 	]
 
 	return (
-		<section className='flex flex-col gap-y-8 max-w-7xl px-5 mx-auto my-[190px]'>
-			<h2 className='text-5xl font-semibold'>Roadmap</h2>
+		<section
+			id='Roadmap'
+			className='flex flex-col gap-y-8 max-w-7xl px-5 mx-auto my-[190px]'
+		>
+			<h2 className='max-[640px]:text-[2rem] text-4xl lg:text-5xl font-semibold'>
+				Roadmap
+			</h2>
 			<div className='relative max-[805px]:hidden border flex gap-x-[1.375rem] gap-y-12 border-[#0066FF] rounded-2xl p-12 flex-wrap'>
-				<p className='uppercase absolute right-12 -bottom-5 py-[10.5px] px-2 border border-[#1E69FF] rounded-md bg-black'>
+				<p className='uppercase absolute right-12 -bottom-5 py-[6.5px] px-2 border border-[#1E69FF] rounded-md bg-black'>
 					and more...
 				</p>
 				{lists.map(item => (
@@ -125,7 +130,7 @@ const RoadMap = () => {
 					))}
 				</div>
 			</div>
-			<p className='uppercase mx-auto py-[10.5px] px-2 border border-[#1E69FF] rounded-md bg-black'>
+			<p className='uppercase mx-auto py-[6.5px] px-2 border min-[805px]:hidden border-[#1E69FF] rounded-md bg-black'>
 				and more...
 			</p>
 		</section>

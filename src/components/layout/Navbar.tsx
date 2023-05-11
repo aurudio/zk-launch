@@ -10,7 +10,6 @@ const Navbar = () => {
 		{ id: 1, title: 'About' },
 		{ id: 2, title: 'Tokenomics' },
 		{ id: 3, title: 'Roadmap' },
-		{ id: 4, title: 'FAQ' },
 	]
 
 	const [vis, setVis] = useState(false)
@@ -29,14 +28,11 @@ const Navbar = () => {
 					/>
 					<ul className='md:flex max-[850px]:text-sm hidden'>
 						{navs.map(item => (
-							<li className='p-5 cursor-pointer' key={item.id}>
-								{item.title}
+							<li className='p-5 cursor-pointer font-light' key={item.id}>
+								<a href={`#${item.title}`}>{item.title}</a>
 							</li>
 						))}
 					</ul>
-					<button className='bg-[#1E69FF] md:block hidden max-[850px]:text-sm max-[850px]: hover:btn-hover active:ring-4 active:ring-[#0055FF59] active:duration-200 duration-200 hover:duration-200 px-6 py-[14.5px] rounded-lg font-medium font'>
-						Connect wallet
-					</button>
 					<Image
 						src={burger}
 						onClick={() => setVis(true)}
@@ -70,9 +66,6 @@ const Navbar = () => {
 							</li>
 						))}
 					</ul>
-					<button className='bg-[#1E69FF] max-[530px]:w-4/5 absolute bottom-0 hover:btn-hover active:ring-4 active:ring-[#0055FF59] active:duration-200 duration-200 hover:duration-200 px-6 py-[14.5px] rounded-lg font-medium font'>
-						Connect wallet
-					</button>
 				</div>
 			</div>
 		</>

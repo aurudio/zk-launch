@@ -17,7 +17,7 @@ const PreSale = () => {
 				/>
 				<MainSection />
 				<Tokenomics />
-				<Investors />
+				{/* <Investors /> */}
 				<GlobalCommunity />
 			</div>
 		</Layout>

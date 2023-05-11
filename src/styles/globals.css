@@ -52,6 +52,10 @@ progress::-moz-progress-bar {
 	src: url('../fonts/Gilroy-ExtraBold.ttf');
 }
 
+* {
+	scroll-behavior: smooth;
+}
+
 @layer components {
 	.roadmap__list-title {
 		@apply font-semibold text-[28px];
@@ -64,10 +68,5 @@ progress::-moz-progress-bar {
 
 	.roadmap-list::-webkit-scrollbar {
 		@apply hidden;
-	}
-
-	.global-community-cards1:last-child,
-	.global-community-cards2:first-child {
-		@apply md:w-[50vw];
 	}
 }

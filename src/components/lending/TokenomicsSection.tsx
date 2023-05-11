@@ -17,10 +17,13 @@ const Tokenomics = () => {
 	]
 
 	return (
-		<section className='flex flex-col items-start px-5 relative overflow-hidden w-full max-[503px]:px-0'>
+		<section
+			id='Tokenomics'
+			className='flex flex-col items-start px-5 relative overflow-hidden w-full max-[503px]:px-0'
+		>
 			<div className='w-full max-w-7xl  mx-auto z-[1]'>
 				<div>
-					<h2 className='text-5xl font-semibold mb-6 max-[503px]:text-[32px] max-[503px]:ml-2'>
+					<h2 className='font-semibold mb-6 max-[640px]:text-[2rem] text-4xl lg:text-5xl max-[503px]:ml-2'>
 						Tokenomics
 					</h2>
 					<div className='flex items-center mb-20 gap-x-[66px] max-[902px]:flex-col'>
@@ -70,7 +73,7 @@ const Tokenomics = () => {
 						</div>
 					</div>
 					<div className='relative px-[92px] max-[841px]:px-[80px] py-16 border border-[#1E69FF] rounded-2xl max-[503px]:hidden'>
-						<p className='uppercase absolute right-12 -top-5 py-[10.5px] px-2 border border-[#1E69FF] rounded-md bg-black'>
+						<p className='uppercase absolute right-12 -top-5 py-[6.5px] px-2 border border-[#1E69FF] rounded-md bg-black'>
 							token
 						</p>
 						<div className='flex gap-x-10 justify-center'>

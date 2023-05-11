@@ -7,10 +7,10 @@ import logo from '@/logo.svg'
 
 const Footer = () => {
 	const icons = [
-		{ id: 1, icon: twitter },
-		{ id: 2, icon: discord },
-		{ id: 3, icon: github },
-		{ id: 4, icon: medium },
+		{ id: 1, icon: twitter, site: '	https://twitter.com/zk_launch' },
+		{ id: 2, icon: discord, site: '	https://discord.gg/zklaunch' },
+		{ id: 3, icon: github, site: '	https://github.com/zklaunch-app' },
+		{ id: 4, icon: medium, site: '	https://zklaunch.medium.com' },
 	]
 
 	const list = [
@@ -47,7 +47,11 @@ const Footer = () => {
 				</p>
 				<ul className='flex gap-x-4'>
 					{icons.map(item => (
-						<li key={item.id} className='cursor-pointer'>
+						<li
+							key={item.id}
+							className='cursor-pointer'
+							onClick={() => window.open(item.site)}
+						>
 							<Image src={item.icon} alt='' />
 						</li>
 					))}

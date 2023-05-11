@@ -19,7 +19,7 @@ const MainSection = () => {
 							zkLaunch is the ultimate decentralized fundraising and marketing
 							platform for teams from all over the world
 						</p>
-						<button className='py-5 pl-6 pr-4 bg-[#1E69FF] rounded-lg flex items-center gap-x-28 hover:btn-hover active:ring-4 active:ring-[#0055FF59] active:duration-200 duration-200 hover:duration-200'>
+						<button className='py-[8.5px] pl-6 pr-4 bg-[#1E69FF] rounded-lg flex items-center gap-x-28 hover:btn-hover active:ring-4 active:ring-[#0055FF59] active:duration-200 duration-200 hover:duration-200 max-[640px]:justify-between max-[640px]:w-full'>
 							<p className='text-xl'>Launch App</p>
 							<Image src={arrow} alt='' />
 						</button>
@@ -30,8 +30,11 @@ const MainSection = () => {
 						className='absolute -right-3/4 -top-3/4 sm:-right-40 sm:-top-0 md:-right-[30%] w-[80vw] -rotate-12 md:-top-24 z-0'
 					/>
 				</div>
-				<div className='rounded-2xl  w-full relative gap-x-4 bg-black/50 max-[900px]:my-16 my-[11.875rem] border border-[#1E69FF] backdrop-blur-[5px]'>
-					<p className='uppercase absolute right-12 -top-5 py-[10.5px] px-2 border max-[980px]:hidden border-[#1E69FF] rounded-md bg-black'>
+				<div
+					id='About'
+					className='rounded-2xl  w-full relative gap-x-4 bg-black/50 max-[900px]:my-16 my-[11.875rem] border border-[#1E69FF] backdrop-blur-[5px]'
+				>
+					<p className='uppercase absolute right-12 -top-5 py-[6.5px] px-2 border max-[980px]:hidden border-[#1E69FF] rounded-md bg-black'>
 						zklaunch pre sale
 					</p>
 					<div className='relative flex justify-end overflow-hidden max-[980px]:pt-10 max-[980px]:items-center max-[980px]:flex-col '>
@@ -55,7 +58,7 @@ const MainSection = () => {
 						</div>
 					</div>
 				</div>
-				<div className='flex mx-auto items-center max-w-7xl px-5 w-full my-[11.875rem] max-[900px]:mb max-[900px]:mt-16  z-[2]'>
+				<div className='flex mx-auto items-center max-w-7xl w-full my-[11.875rem] max-[900px]:mb max-[900px]:mt-16  z-[2]'>
 					<div className='flex flex-col w-[600px] pt-14 gap-y-6'>
 						<h3 className='font-semibold md:text-4xl lg:text-5xl text-[2rem]'>
 							What do we do?
