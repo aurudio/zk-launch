@@ -18,7 +18,6 @@ const Footer = () => {
 		{ id: 2, title: 'Tokenomics' },
 		{ id: 3, title: 'Roadmap' },
 		{ id: 4, title: 'Launch App' },
-		{ id: 5, title: 'FAQ' },
 	]
 
 	return (

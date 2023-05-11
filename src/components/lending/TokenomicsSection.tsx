@@ -73,7 +73,7 @@ const Tokenomics = () => {
 						</div>
 					</div>
 					<div className='relative px-[92px] max-[841px]:px-[80px] py-16 border border-[#1E69FF] rounded-2xl max-[503px]:hidden'>
-						<p className='uppercase absolute right-12 -top-5 py-[6.5px] px-2 border border-[#1E69FF] rounded-md bg-black'>
+						<p className='uppercase absolute right-12 max-[640px]:hidden -top-5 py-[6.5px] px-2 border border-[#1E69FF] rounded-md bg-black'>
 							token
 						</p>
 						<div className='flex gap-x-10 justify-center'>

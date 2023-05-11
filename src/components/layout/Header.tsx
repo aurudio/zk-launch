@@ -23,7 +23,7 @@ const Header = () => {
 			<div
 				className={`${
 					pathname === '/' ? 'block' : 'hidden'
-				} overflow-hidden bg-gradient-to-r from-[#FF8A00] to-[#D449F7] py-3`}
+				} overflow-hidden bg-gradient-to-r max-[640px]:hidden from-[#FF8A00] to-[#D449F7] py-3`}
 			>
 				<div className='w-[2454px] flex gap-x-[60px] mx-auto -translate-x-6'>
 					{news.map(item => (
@@ -33,7 +33,7 @@ const Header = () => {
 					))}
 				</div>
 			</div>
-			<div className='flex cursor-pointer justify-center py-[15px] bg-[#1E69FF] font-semibold text-xs sm:text-base'>
+			<div className='flex max-[640px]:hidden cursor-pointer justify-center py-[15px] bg-[#1E69FF] font-semibold text-xs sm:text-base'>
 				<p>
 					🎉 zkLaunch just became more affordable! Check out our new pricing
 					plans! 🎉
