@@ -8,7 +8,7 @@ import { statistic } from '../lending/TokenomicsSection'
 const MainSection = () => {
 	const [number, setNumber] = useState(0)
 	return (
-		<div className='mt-[120px] flex flex-col items-center mb-[17.5rem]'>
+		<div className='mt-[120px] flex flex-col items-center'>
 			<div className='flex flex-col items-center text-center mb-[101px]'>
 				<h2 className='font-semibold text-[4rem] w-3/5 leading-[100%] mb-6'>
 					Invest in the future of zero knowledge technology
