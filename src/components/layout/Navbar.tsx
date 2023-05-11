@@ -1,8 +1,12 @@
 import Image from 'next/image'
+<<<<<<< HEAD
 import Logo from '@/logo.svg'
 import burger from '@/burger.svg'
 import { useState } from 'react'
 import closeBtn from '@/close-btn.svg'
+=======
+import Logo from '../../../public/logo.svg'
+>>>>>>> 0c23346 (presale add)
 
 const Navbar = () => {
 	const navs = [
@@ -11,6 +15,7 @@ const Navbar = () => {
 		{ id: 3, title: 'Roadmap' },
 		{ id: 4, title: 'FAQ' },
 	]
+<<<<<<< HEAD
 
 	const [vis, setVis] = useState(false)
 
@@ -68,6 +73,22 @@ const Navbar = () => {
 				</div>
 			</div>
 		</>
+=======
+	return (
+		<nav className='max-w-7xl px-5 w-full flex items-center justify-between mx-auto'>
+			<Image src={Logo} alt='' />
+			<ul className='flex'>
+				{navs.map(item => (
+					<li className='p-5 cursor-pointer' key={item.id}>
+						{item.title}
+					</li>
+				))}
+			</ul>
+			<button className='bg-[#1E69FF] hover:btn-hover active:ring-4 active:ring-[#0055FF59] active:duration-200 duration-200 hover:duration-200 px-6 py-[14.5px] rounded-lg font-medium font'>
+				Connect wallet
+			</button>
+		</nav>
+>>>>>>> 0c23346 (presale add)
 	)
 }
 

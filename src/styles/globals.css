@@ -2,6 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+	background-color: black;
+	color: white;
+}
+
+input {
+	outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+progress::-webkit-progress-bar {
+	border: 0;
+	height: 12px;
+	border-radius: 10px;
+	background-color: #1a1d22;
+}
+progress::-webkit-progress-value {
+	border: 0;
+	height: 12px;
+	border-radius: 10px;
+	background: linear-gradient(90deg, #db00ff 0%, #1e69ff 97.35%);
+}
+progress::-moz-progress-bar {
+	border: 0;
+	height: 12px;
+	border-radius: 10px;
+}
+
 @font-face {
 	font-family: 'GR-regular';
 	src: url('../fonts/Gilroy-Regular.ttf');

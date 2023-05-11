@@ -1,19 +1,19 @@
 import Image from 'next/image'
 import diagram from '../../../public/Tokenomics.svg'
 
+export const statistic = [
+	{ id: 1, title: '$0.05', desc: 'Pre-Sale Price' },
+	{ id: 2, title: '$0.1', desc: 'Listing Price' },
+	{ id: 3, title: '100M', desc: '$ZKL supply' },
+	{ id: 4, title: '$ZKL', desc: 'Ticker' },
+]
+
 const Tokenomics = () => {
 	const tokens = [
 		{ id: 1, title: 'DAO Treasury*', value: '50 000 000', color: '#C112FF' },
 		{ id: 2, title: 'Liquidity', value: '30 000 000', color: '#0055FF' },
 		{ id: 3, title: 'Community', value: '50 000 000', color: '#00FF59' },
 		{ id: 4, title: 'Teams', value: '30 000 000', color: '#FFA012' },
-	]
-
-	const statistic = [
-		{ id: 1, title: '$0.05', desc: 'Pre-Sale Price' },
-		{ id: 2, title: '$0.1', desc: 'Listing Price' },
-		{ id: 3, title: '100M', desc: '$ZKL supply' },
-		{ id: 4, title: '$ZKL', desc: 'Ticker' },
 	]
 
 	return (
