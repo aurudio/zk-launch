@@ -62,7 +62,10 @@ const Tokenomics = () => {
 						</p>
 						<div className='flex gap-x-10 justify-center'>
 							{statistic.map(item => (
-								<div className='flex items-center flex-col w-[23%] gap-y-3'>
+								<div
+									className='flex items-center flex-col w-[23%] gap-y-3'
+									key={item.id}
+								>
 									<h5 className='text-5xl font-semibold'>{item.title}</h5>
 									<h6 className='text-[#0066FF] text-xl font-bold'>
 										{item.desc}

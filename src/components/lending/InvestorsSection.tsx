@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import abstract from '@/abstract.svg'
 import grid from '@/grid.svg'
-import blue from '@/blue-icon.svg'
-import green from '@/green-icon.svg'
-import purple from '@/purple-icon.svg'
-import yellow from '@/yellow-icon.svg'
+import blue from '@/blue-icon.png'
+import green from '@/green-icon.png'
+import purple from '@/purple-icon.png'
+import yellow from '@/yellow-icon.png'
 
 const Investors = () => {
 	const investors = [
@@ -23,7 +23,7 @@ const Investors = () => {
 
 	const blocks = [
 		{ id: 1, title: 'For investors', block: investors, vector: abstract },
-		{ id: 1, title: 'For teams', block: teams, vector: grid },
+		{ id: 2, title: 'For teams', block: teams, vector: grid },
 	]
 
 	return (
@@ -45,7 +45,7 @@ const Investors = () => {
 										className='flex gap-3 w-[12.5rem] items-start'
 										key={elem.id}
 									>
-										<Image src={elem.icon} alt='' />
+										<Image src={elem.icon} className='w-12 h-12' alt='' />
 										<h5 className='text-[1.375rem] font-bold'>{elem.title}</h5>
 									</div>
 								))}
