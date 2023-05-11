@@ -27,7 +27,7 @@ const MainSection = () => {
 					<input
 						className='bg-black border border-[#FFFFFF1A] w-full h-[52px]  rounded-[8px] text-center'
 						type='number'
-						onChange={(e: any) => setNumber(+e.target.value)}
+						onChange={e => setNumber(+e.target.value)}
 						value={number}
 					/>
 					<button

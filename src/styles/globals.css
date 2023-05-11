@@ -65,4 +65,9 @@ progress::-moz-progress-bar {
 	.roadmap-list::-webkit-scrollbar {
 		@apply hidden;
 	}
+
+	.global-community-cards1:last-child,
+	.global-community-cards2:first-child {
+		@apply md:w-[50vw];
+	}
 }
