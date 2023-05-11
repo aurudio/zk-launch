@@ -16,24 +16,26 @@ const Navbar = () => {
 
 	return (
 		<>
-			<nav className='max-w-7xl px-5 w-full shadow-[0_1px_0_#292A2B] flex items-center justify-between mx-auto'>
-				<Image src={Logo} alt='' />
-				<ul className='md:flex max-[850px]:text-sm hidden'>
-					{navs.map(item => (
-						<li className='p-5 cursor-pointer' key={item.id}>
-							{item.title}
-						</li>
-					))}
-				</ul>
-				<button className='bg-[#1E69FF] md:block hidden max-[850px]:text-sm max-[850px]: hover:btn-hover active:ring-4 active:ring-[#0055FF59] active:duration-200 duration-200 hover:duration-200 px-6 py-[14.5px] rounded-lg font-medium font'>
-					Connect wallet
-				</button>
-				<Image
-					src={burger}
-					onClick={() => setVis(true)}
-					alt=''
-					className='md:hidden cursor-pointer'
-				/>
+			<nav className=' w-full shadow-[0_1px_0_#292A2B]'>
+				<div className='max-w-7xl px-5 w-full flex items-center mx-auto justify-between'>
+					<Image src={Logo} alt='' />
+					<ul className='md:flex max-[850px]:text-sm hidden'>
+						{navs.map(item => (
+							<li className='p-5 cursor-pointer' key={item.id}>
+								{item.title}
+							</li>
+						))}
+					</ul>
+					<button className='bg-[#1E69FF] md:block hidden max-[850px]:text-sm max-[850px]: hover:btn-hover active:ring-4 active:ring-[#0055FF59] active:duration-200 duration-200 hover:duration-200 px-6 py-[14.5px] rounded-lg font-medium font'>
+						Connect wallet
+					</button>
+					<Image
+						src={burger}
+						onClick={() => setVis(true)}
+						alt=''
+						className='md:hidden cursor-pointer'
+					/>
+				</div>
 			</nav>
 			<div
 				className={` ${
