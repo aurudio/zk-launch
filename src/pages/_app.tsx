@@ -14,8 +14,12 @@ export default function App({ Component, pageProps }: AppProps) {
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
+<<<<<<< HEAD
 		<div className='font-GR'>
 >>>>>>> 0c23346 (presale add)
+=======
+		<div className='font-GR bg-black text-white'>
+>>>>>>> e5ed28c (commit)
 			<Component {...pageProps} />
 		</div>
 	)
