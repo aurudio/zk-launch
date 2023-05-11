@@ -49,7 +49,7 @@ const GlobalCommunity = () => {
 						className='cursor-pointer p-8 rounded-2xl border bg-[#0F0F0F] hover:border-[#FFC017] hover:duration-200 duration-200 border-[#0F0F0F]'
 					>
 						<div className='flex flex-col'>
-							<Image src={item.icon} className='mb-4' />
+							<Image src={item.icon} className='mb-4' alt='' />
 							<div className='flex flex-col gap-y-2 w-[228px]'>
 								<h5 className='font-bold text-[22px]'>{item.title}</h5>
 								<p className=''>{item.desc}</p>

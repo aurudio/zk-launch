@@ -10,7 +10,7 @@ const Navbar = () => {
 	]
 	return (
 		<nav className='max-w-7xl px-5 w-full flex items-center justify-between mx-auto'>
-			<Image src={Logo} />
+			<Image src={Logo} alt='' />
 			<ul className='flex'>
 				{navs.map(item => (
 					<li className='p-5 cursor-pointer' key={item.id}>

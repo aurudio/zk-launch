@@ -1,6 +1,13 @@
 import Image from 'next/image'
 import diagram from '../../../public/Tokenomics.svg'
 
+export const statistic = [
+	{ id: 1, title: '$0.05', desc: 'Pre-Sale Price' },
+	{ id: 2, title: '$0.1', desc: 'Listing Price' },
+	{ id: 3, title: '100M', desc: '$ZKL supply' },
+	{ id: 4, title: '$ZKL', desc: 'Ticker' },
+]
+
 const Tokenomics = () => {
 	const tokens = [
 		{ id: 1, title: 'DAO Treasury*', value: '50 000 000', color: '#C112FF' },
@@ -9,20 +16,13 @@ const Tokenomics = () => {
 		{ id: 4, title: 'Teams', value: '30 000 000', color: '#FFA012' },
 	]
 
-	const statistic = [
-		{ id: 1, title: '$0.05', desc: 'Pre-Sale Price' },
-		{ id: 2, title: '$0.1', desc: 'Listing Price' },
-		{ id: 3, title: '100M', desc: '$ZKL supply' },
-		{ id: 4, title: '$ZKL', desc: 'Ticker' },
-	]
-
 	return (
 		<section className='flex flex-col items-start px-5 relative overflow-hidden w-full'>
 			<div className='w-full max-w-7xl px-5 mx-auto z-[1]'>
 				<div>
 					<h2 className='text-5xl font-semibold mb-6'>Tokenomics</h2>
 					<div className='flex items-center mb-20 gap-x-[66px]'>
-						<Image src={diagram} />
+						<Image src={diagram} alt='' />
 						<div className='flex flex-col w-[520px]'>
 							<div className='flex flex-col gap-y-2 items-start mb-10'>
 								<h3 className='text-[32px] font-semibold'>$ZKL Token</h3>

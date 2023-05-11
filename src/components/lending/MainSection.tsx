@@ -21,7 +21,7 @@ const MainSection = () => {
 						</p>
 						<button className='py-5 pl-6 pr-4 bg-[#1E69FF] rounded-lg flex items-center gap-x-28 hover:btn-hover active:ring-4 active:ring-[#0055FF59] active:duration-200 duration-200 hover:duration-200'>
 							<p className='text-xl'>Launch App</p>
-							<Image src={arrow} />
+							<Image src={arrow} alt='' />
 						</button>
 					</div>
 				</div>
@@ -30,7 +30,7 @@ const MainSection = () => {
 						zklaunch pre sale
 					</p>
 					<div className='relative flex justify-end overflow-hidden'>
-						<Image src={rocket} className='absolute -left-10 -top-24' />
+						<Image src={rocket} alt='' className='absolute -left-10 -top-24' />
 						<div className='flex flex-col gap-y-6 w-[55%] py-[52px] mr-14'>
 							<h3 className='font-semibold text-5xl'>
 								Discover new projects or launch your own{' '}
@@ -54,10 +54,10 @@ const MainSection = () => {
 					</p>
 				</div>
 
-				<Image src={donut50} className='' />
+				<Image src={donut50} alt='' className='' />
 			</div>
-			<Image src={stars} className='absolute top-0 right-0 z-0' />
-			<Image src={donut} className='absolute -right-32 -top-5' />
+			<Image src={stars} alt='' className='absolute top-0 right-0 z-0' />
+			<Image src={donut} alt='' className='absolute -right-32 -top-5' />
 		</section>
 	)
 }
