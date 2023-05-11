@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: 'GR-regular';
+	src: url('../fonts/Gilroy-Regular.ttf');
+}
+@font-face {
+	font-family: 'GR-medium';
+	src: url('../fonts/Gilroy-Medium.ttf');
+}
+@font-face {
+	font-family: 'GR-semibold';
+	src: url('../fonts/Gilroy-SemiBold.ttf');
+}
+@font-face {
+	font-family: 'GR-extrabold';
+	src: url('../fonts/Gilroy-ExtraBold.ttf');
+}
+
+@layer components {
+	.roadmap__list-title {
+		@apply font-semibold text-[28px];
+	}
+
+	.btn-hover {
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+			#1e69ff;
+	}
+}
