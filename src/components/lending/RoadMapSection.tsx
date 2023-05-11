@@ -90,6 +90,7 @@ const RoadMap = () => {
 										className={`${
 											!elem.status ? 'mr-2 ml-[6px] mt-2' : 'mt-1 '
 										} `}
+										alt=''
 									/>
 									<p className='text-lg'>{elem.title}</p>
 								</li>

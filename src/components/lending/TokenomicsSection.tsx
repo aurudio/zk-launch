@@ -22,7 +22,7 @@ const Tokenomics = () => {
 				<div>
 					<h2 className='text-5xl font-semibold mb-6'>Tokenomics</h2>
 					<div className='flex items-center mb-20 gap-x-[66px]'>
-						<Image src={diagram} />
+						<Image src={diagram} alt='' />
 						<div className='flex flex-col w-[520px]'>
 							<div className='flex flex-col gap-y-2 items-start mb-10'>
 								<h3 className='text-[32px] font-semibold'>$ZKL Token</h3>

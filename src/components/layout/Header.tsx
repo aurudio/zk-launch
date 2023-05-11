@@ -31,7 +31,7 @@ const Header = () => {
 					🎉 zkLaunch just became more affordable! Check out our new pricing
 					plans! 🎉
 				</p>
-				<Image src={arrow} />
+				<Image src={arrow} alt='' />
 			</div>
 			<Navbar />
 		</header>
