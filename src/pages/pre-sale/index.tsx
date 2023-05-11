@@ -3,6 +3,9 @@ import Layout from '@/components/layout/layout'
 import MainSection from '@/components/pre-sale/MainSection'
 import Image from 'next/image'
 import stars from '@/zkLaunch-stars-bg 1.png'
+import Tokenomics from '@/components/lending/TokenomicsSection'
+import Investors from '@/components/lending/InvestorsSection'
+import GlobalCommunity from '@/components/lending/GlobalCommSection'
 const PreSale = () => {
 	return (
 		<Layout>
@@ -13,6 +16,9 @@ const PreSale = () => {
 					alt='stars'
 				/>
 				<MainSection />
+				<Tokenomics />
+				<Investors />
+				<GlobalCommunity />
 			</div>
 		</Layout>
 	)
