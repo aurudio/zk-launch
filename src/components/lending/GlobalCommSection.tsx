@@ -11,24 +11,28 @@ const GlobalCommunity = () => {
 			id: 1,
 			icon: discord,
 			title: 'Discord',
+			color: '#6947F6',
 			desc: 'Chat with like-minded people, dive into DeFi world.',
 		},
 		{
 			id: 2,
 			icon: twitter,
 			title: 'Twitter',
+			color: '#1DA1F2',
 			desc: 'Follow updates and news on @zkLaunch and participate in giveaways',
 		},
 		{
 			id: 3,
 			icon: medium,
 			title: 'Medium',
+			color: '#FFC017',
 			desc: 'Get insights from zkLaunch news, progress and industry analysis',
 		},
 		{
 			id: 4,
 			icon: github,
 			title: 'GitHub',
+			color: '#6947F6',
 			desc: 'Watch for tech updates to the code base and participate in the Bug Bounty program',
 		},
 	]
@@ -45,8 +49,9 @@ const GlobalCommunity = () => {
 			<div className='flex gap-x-6 w-full'>
 				{cards.map(item => (
 					<div
+						style={{ border: `1px ${item.color} solid` }}
 						key={item.id}
-						className='cursor-pointer p-8 rounded-2xl border bg-[#0F0F0F] hover:border-[#FFC017] hover:duration-200 duration-200 border-[#0F0F0F]'
+						className='cursor-pointer p-8 rounded-2xl border bg-[#0F0F0F]'
 					>
 						<div className='flex flex-col'>
 							<Image src={item.icon} className='mb-4' alt='' />

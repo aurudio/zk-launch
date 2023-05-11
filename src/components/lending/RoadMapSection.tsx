@@ -37,7 +37,7 @@ const quartal = [
 	{ id: 3, title: 'Audits', status: false },
 	{
 		id: 4,
-		title: 'Pro tools & analytics for launchpad projects',
+		title: 'Pro tools & analytics for launchpad projects',
 		status: false,
 	},
 	{
@@ -55,7 +55,7 @@ const year = [
 	},
 	{
 		id: 2,
-		title: 'Cross-chain interoperability & aggregation',
+		title: 'Cross-chain interoperability & aggregation',
 		status: false,
 	},
 	{ id: 3, title: 'Leverage & Lending', status: false },
@@ -75,7 +75,7 @@ const RoadMap = () => {
 	return (
 		<section className='flex flex-col gap-y-8 max-w-7xl px-5 mx-auto my-[190px]'>
 			<h2 className='text-5xl font-semibold'>Roadmap</h2>
-			<div className='relative border flex gap-x-[22px] border-[#0066FF] rounded-2xl p-12 flex-wrap'>
+			<div className='relative max-[805px]:hidden border flex gap-x-[1.375rem] gap-y-12 border-[#0066FF] rounded-2xl p-12 flex-wrap'>
 				<p className='uppercase absolute right-12 -bottom-5 py-[10.5px] px-2 border border-[#1E69FF] rounded-md bg-black'>
 					and more...
 				</p>
@@ -99,6 +99,35 @@ const RoadMap = () => {
 					</div>
 				))}
 			</div>
+			<div className='relative mb-[3.1875rem] overflow-hidden'>
+				<div className='roadmap-list flex overflow-scroll snap-x min-[805px]:hidden gap-x-5 items-start '>
+					{lists.map(item => (
+						<div
+							key={item.id}
+							className='flex flex-col border border-[#1E69FF] rounded-lg p-6 snap-start'
+						>
+							<h4 className='roadmap__list-title mb-4'>{item.title}:</h4>
+							<ul className='flex flex-col w-52 gap-y-3'>
+								{item.list.map(elem => (
+									<li key={elem.id} className='flex items-start'>
+										<Image
+											src={elem.status ? checked : unchecked}
+											className={`${
+												!elem.status ? 'mr-2 ml-[6px] mt-2' : 'mt-1 '
+											} `}
+											alt=''
+										/>
+										<p className='text-lg'>{elem.title}</p>
+									</li>
+								))}
+							</ul>
+						</div>
+					))}
+				</div>
+			</div>
+			<p className='uppercase mx-auto py-[10.5px] px-2 border border-[#1E69FF] rounded-md bg-black'>
+				and more...
+			</p>
 		</section>
 	)
 }
