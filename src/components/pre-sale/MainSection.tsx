@@ -6,7 +6,7 @@ import wallet from '@/wallet.svg'
 import { statistic } from '../lending/TokenomicsSection'
 
 const MainSection = () => {
-	const [number, setNumber] = useState(0)
+	const [number, setNumber] = useState<null | number>(null)
 	return (
 		<div className='mt-[120px] max-[678px]:mt-[50px] flex flex-col items-center mb-[10rem] max-[893px]:mb-[6rem]'>
 			<div className='flex flex-col items-center text-center mb-[101px]'>
@@ -20,7 +20,7 @@ const MainSection = () => {
 				<div className='relative w-[360px] flex items-center justify-between mb-4'>
 					<button
 						className='absolute left-1.5  w-[40px] h-[40px] rounded-[6px] bg-[#FFFFFF1A] flex justify-center items-center'
-						onClick={() => setNumber(number - 1)}
+						onClick={() => setNumber(number ? number + 1 : null)}
 					>
 						<Image src={minus} alt='minus' />
 					</button>
@@ -32,11 +32,11 @@ const MainSection = () => {
 
 							setNumber(+value)
 						}}
-						value={number}
+						value={number ? number : ''}
 					/>
 					<button
 						className='absolute right-1.5  w-[40px] h-[40px] rounded-[6px] bg-[#FFFFFF1A] flex justify-center items-center'
-						onClick={() => setNumber(number + 1)}
+						onClick={() => setNumber(number ? number + 1 : null)}
 					>
 						<Image src={plus} alt='plus' />
 					</button>
@@ -61,7 +61,11 @@ const MainSection = () => {
 							<p className='max-[539px]:text-[10px]'>LIVE</p>
 						</div>
 					</div>
-					<progress className='w-full mb-3' value={number} max={1000} />
+					<progress
+						className='w-full mb-3'
+						value={number ? number : ''}
+						max={1000}
+					/>
 					<div className='flex justify-between w-full mb-20 max-[510px]:mb-6 max-[604px]:mb-8'>
 						<p className='text-[22px] max-[539px]:text-base ml-[5%] max-[850px]:text-[19px] max-[510px]:ml-0 max-[510px]:text-[18px]'>
 							Start
