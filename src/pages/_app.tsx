@@ -9,7 +9,6 @@ export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<div className='font-GR'>
 			<Head>
-				<title>zkLaucnh</title>
 				<link rel='icon' type='image/x-icon' href='/favicon.ico' />
 				<meta property='twitter:image' content='/preview.png' />
 				<title>
