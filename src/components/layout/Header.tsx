@@ -44,7 +44,10 @@ const Header = () => {
 					}
 				>
 					💻 We are giving away 3 x MacBook Pro!{' '}
-					<span className='border-b-4 border-dotted'> Enter to win here </span>{' '}
+					<span className='border-b-4 border-dotted border-black'>
+						{' '}
+						Enter to win here{' '}
+					</span>{' '}
 					🚀
 				</p>
 				<Image src={arrow} alt='' />
