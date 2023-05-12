@@ -62,9 +62,8 @@ const GlobalCommunity = () => {
 				{cards.map(item => (
 					<div
 						onClick={() => window.open(item.site)}
-						style={{ border: `1px ${item.color} solid` }}
 						key={item.id}
-						className='global-community-cards max-[1190px]:w-[90vw] cursor-pointer p-[1.5vw] max-[1190px]:p-8 rounded-2xl border bg-[#0F0F0F]'
+						className={`global-community-cards ${item.title.toLowerCase()} max-[1190px]:w-[90vw] cursor-pointer p-[1.5vw] max-[1190px]:p-8 rounded-2xl border bg-[#0F0F0F] border-[#0F0F0F]`}
 					>
 						<div className='flex flex-col'>
 							<Image src={item.icon} className='mb-4' alt='' />
