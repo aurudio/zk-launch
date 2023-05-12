@@ -8,6 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
 			<Head>
 				<title>zkLaucnh</title>
 				<link rel='icon' type='image/x-icon' href='/favicon.ico' />
+				<meta property='twitter:image' content='/preview.png' />
 				<title>zkLaunch | zkSync Launchpad</title>
 
 				<link rel='icon' type='image/png' sizes='32x32' href='/favicon.png' />
