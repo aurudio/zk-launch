@@ -26,7 +26,7 @@ const Tokenomics = () => {
 		>
 			<div className='w-full max-w-7xl  mx-auto z-[1]'>
 				<div>
-					<h2 className='font-semibold mb-6 max-[640px]:text-[2rem] text-4xl lg:text-5xl max-[503px]:ml-2'>
+					<h2 className='font-semibold mb-6 max-[640px]:text-[2rem] text-4xl lg:text-5xl max-[503px]:ml-4'>
 						Tokenomics
 					</h2>
 					<div className='flex items-center mb-20 gap-x-[66px] max-[902px]:flex-col'>

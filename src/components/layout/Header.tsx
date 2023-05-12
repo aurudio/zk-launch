@@ -20,7 +20,7 @@ const Header = () => {
 
 	return (
 		<header className='flex flex-col'>
-			<div
+			{/* <div
 				className={`${
 					pathname === '/' ? 'block' : 'hidden'
 				} overflow-hidden bg-gradient-to-r max-[640px]:hidden from-[#FF8A00] to-[#D449F7] py-3`}
@@ -32,12 +32,9 @@ const Header = () => {
 						</p>
 					))}
 				</div>
-			</div>
+			</div> */}
 			<div className='flex cursor-pointer justify-center py-[15px] bg-[#1E69FF] font-semibold text-xs sm:text-base max-[500px]:hidden'>
-				<p>
-					🎉 zkLaunch just became more affordable! Check out our new pricing
-					plans! 🎉
-				</p>
+				<p>💻 We are giving away 3 x MacBook Pro! Enter to win here 🚀</p>
 				<Image src={arrow} alt='' />
 			</div>
 			<Navbar />

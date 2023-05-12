@@ -75,7 +75,7 @@ const RoadMap = () => {
 	return (
 		<section
 			id='Roadmap'
-			className='flex flex-col gap-y-8 max-w-7xl px-5 mx-auto max-[1115px]:my-16 my-[11.875rem]'
+			className='flex flex-col gap-y-8 max-w-7xl px-5 mx-auto max-[1115px]:my-16 my-[11.875rem] max-[850px]:mt-0'
 		>
 			<h2 className='max-[640px]:text-[2rem] text-4xl lg:text-5xl font-semibold'>
 				Roadmap

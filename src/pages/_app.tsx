@@ -4,7 +4,7 @@ import Head from 'next/head'
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
-		<div className='font-GR bg-black text-white'>
+		<div className='font-GR'>
 			<Head>
 				<title>zkLaucnh</title>
 				<link rel='icon' type='image/x-icon' href='/favicon.ico' />

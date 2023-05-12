@@ -37,7 +37,10 @@ const cards = [
 
 const GlobalCommunity = () => {
 	return (
-		<section className='flex flex-col items-start max-w-7xl mx-auto max-[1115px]:my-16 my-[11.875rem] px-5'>
+		<section
+			id='Community'
+			className='flex flex-col items-start max-w-7xl mx-auto my-[8.875rem] px-5 max-[850px]:mt-[0rem] max-[677px]:mb-[4rem]'
+		>
 			<h2 className='max-[640px]:text-[2rem] text-4xl lg:text-5xl font-semibold mb-6'>
 				Global Community
 			</h2>

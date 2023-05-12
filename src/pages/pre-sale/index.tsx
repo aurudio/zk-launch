@@ -11,7 +11,7 @@ const PreSale = () => {
 		<Layout>
 			<div className='relative'>
 				<Image
-					className='absolute w-[70vw] -top-[200px] right-0 10 max-[900px]:w-[90vw] max-[900px]:-top-[100px]'
+					className='absolute w-[70vw] -top-[200px] right-0 10 max-[900px]:w-[90vw] max-[900px]:-top-[100px] -z-10'
 					src={stars}
 					alt='stars'
 				/>

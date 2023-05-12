@@ -17,7 +17,6 @@ const Footer = () => {
 		{ id: 1, title: 'About' },
 		{ id: 2, title: 'Tokenomics' },
 		{ id: 3, title: 'Roadmap' },
-		{ id: 4, title: 'Launch App' },
 	]
 
 	return (
@@ -44,7 +43,7 @@ const Footer = () => {
 				<p className='font-normal opacity-40'>
 					© 2023 zkLaunch | All rights reserved
 				</p>
-				<ul className='flex gap-x-4'>
+				<ul className='flex gap-x-4 mr-5'>
 					{icons.map(item => (
 						<li
 							key={item.id}

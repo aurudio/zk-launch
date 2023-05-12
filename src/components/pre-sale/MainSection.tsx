@@ -8,7 +8,7 @@ import { statistic } from '../lending/TokenomicsSection'
 const MainSection = () => {
 	const [number, setNumber] = useState(0)
 	return (
-		<div className='mt-[120px] max-[678px]:mt-[50px] flex flex-col items-center mb-[17.5rem] max-[893px]:mb-[10rem]'>
+		<div className='mt-[120px] max-[678px]:mt-[50px] flex flex-col items-center mb-[10rem] max-[893px]:mb-[6rem]'>
 			<div className='flex flex-col items-center text-center mb-[101px]'>
 				<h2 className='font-semibold md:text-[4rem] sm:text-[3rem] w-3/5 leading-[100%] mb-6 max-[647px]:text-[2.5rem] max-[647px]:w-4/5 max-[439px]:text-left max-[439px]:w-[90%] max-[900px]:w-[80%] max-[500px]:mt-[32px] max-[600px]:leading-[52px]'>
 					Invest in the future of zero knowledge technology
@@ -25,7 +25,7 @@ const MainSection = () => {
 						<Image src={minus} alt='minus' />
 					</button>
 					<input
-						className='bg-black border border-[#FFFFFF1A] w-full h-[52px]  rounded-[8px] text-center'
+						className='bg-black border border-[#FFFFFF1A] w-full h-[52px]  rounded-[8px] text-center text-2xl'
 						type='number'
 						onChange={e => setNumber(+e.target.value)}
 						value={number}

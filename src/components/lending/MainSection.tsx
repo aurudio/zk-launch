@@ -8,7 +8,7 @@ import stars from '@/zkLaunch-stars-bg 1.png'
 const MainSection = () => {
 	return (
 		<section className='flex flex-col items-start relative overflow-hidden w-full'>
-			<div className='w-full max-w-7xl px-5 mx-auto z-[1] pb-[11.875rem]'>
+			<div className='w-full max-w-7xl px-5 mx-auto z-[1] pb-[11.875rem] max-[983px]:pb-[6rem] max-[983px]:pb-[5rem]'>
 				<div className='mb-[5.625rem] md:mb-60 relative flex justify-start'>
 					<div className='flex flex-col gap-y-6 items-start mt-28 w-[719px] z-[1]'>
 						<h1 className='font-semibold text-5xl md:text-[3.5rem] lg:text-[4rem]'>
@@ -27,7 +27,7 @@ const MainSection = () => {
 					<Image
 						src={donut}
 						alt=''
-						className='absolute -right-3/4 -top-3/4 sm:-right-40 sm:-top-0 md:-right-[30%] w-[80vw] -rotate-12 md:-top-24 z-0'
+						className='absolute  sm:-right-96 sm:-top-[170px] md:-right-[270px] w-[900px] -rotate-12  z-0 max-[786px]:hidden'
 					/>
 				</div>
 				<div
@@ -47,10 +47,10 @@ const MainSection = () => {
 							<Image src={rocket} alt='' className='absolute scale-[2.5]' />
 						</div>
 						<div className='flex flex-col gap-y-6 max-[980px]:text-center max-[980px]:-translate-y-8 max-[980px]:mx-auto max-[980px]:px-4 min-[980px]:w-[55%] py-8 md:py-[52px] md:mr-14'>
-							<h3 className='font-semibold text-[2rem] md:text-4xl lg:text-5xl'>
+							<h3 className='font-semibold text-[2rem] md:text-4xl lg:text-5xl max-[572px]:text-start'>
 								Discover new projects or launch your own{' '}
 							</h3>
-							<p className='text-lg lg:text-[1.375rem]'>
+							<p className='text-lg lg:text-[1.375rem] max-[572px]:text-start'>
 								zkLaunch is built on zkSync Era and offers a cheap and trustless
 								way to launch innovative projects and participate in exciting
 								presales while maintaining user safety
@@ -73,7 +73,7 @@ const MainSection = () => {
 				<Image
 					src={donut50}
 					alt=''
-					className='absolute min-[980px]:top-[59rem] sm:top-[60rem] sm:-right-44 top-[70rem] -right-48 object-cover max-[580px]:-right-32 max-[580px]:top-[70rem] max-[56px]:top-[65rem] max-[550px]:top-[70rem] md:top-[68rem] lg:top-[68rem] z-[-1] md:right-0 lg:right-12'
+					className='absolute min-[980px]:top-[59rem] sm:top-[60rem] sm:-right-44 top-[70rem] -right-48 object-cover max-[580px]:-right-32 max-[580px]:top-[70rem] max-[56px]:top-[65rem] max-[550px]:top-[70rem] md:top-[68rem] lg:top-[68rem] z-[-1] md:right-0 lg:right-12 min-[684px]:top-[50rem] max-[639px]:top-[55rem]'
 				/>
 			</div>
 
