@@ -8,7 +8,7 @@ import { statistic } from '../lending/TokenomicsSection'
 const MainSection = () => {
 	const [number, setNumber] = useState(0)
 	return (
-		<div className='mt-[120px] max-[678px]:mt-[50px] flex flex-col items-center mb-[17.5rem]'>
+		<div className='mt-[120px] max-[678px]:mt-[50px] flex flex-col items-center mb-[17.5rem] max-[893px]:mb-[10rem]'>
 			<div className='flex flex-col items-center text-center mb-[101px]'>
 				<h2 className='font-semibold md:text-[4rem] sm:text-[3rem] w-3/5 leading-[100%] mb-6 max-[647px]:text-[2.5rem] max-[647px]:w-4/5 max-[439px]:text-left max-[439px]:w-[90%] max-[900px]:w-[80%] max-[500px]:mt-[32px] max-[600px]:leading-[52px]'>
 					Invest in the future of zero knowledge technology
@@ -45,43 +45,46 @@ const MainSection = () => {
 					Pre-Sale Price: <span className='font-semibold'>$0.05</span>
 				</p>
 			</div>
-			<div className='w-[80%] max-[439px]:w-[90%] border border-[#0066FF] rounded-2xl py-[60px] backdrop-blur-[10px] flex flex-col items-center relative max-w-[924px]'>
-				<div>
-					<div className='flex justify-between w-full'>
-						<div></div>
-						<h3 className='font-extrabold text-[32px] mb-[37px] max-[600px]:text-[24px]'>
-							<span className='text-[#0066FF]'>513</span>/1000 ETH
+			<div className='w-[80%] max-[439px]:w-[90%] border border-[#0066FF] rounded-2xl py-[60px]  backdrop-blur-[10px] flex flex-col items-center relative max-w-[924px] max-[510px]:py-[42px]'>
+				<div className='flex flex-col w-full px-[118px] max-[900px]:px-[70px] max-[510px]:p-[20px]'>
+					<div className='flex w-full justify-between max-[850px]:justify-center'>
+						<div className='max-[850px]:hidden'></div>
+						<h3 className='font-bold text-[32px] mb-[37px] max-[600px]:text-[28px] ml-11 max-[850px]:ml-0 max-[510px]:mb-[21px]'>
+							<span className='text-[#0066FF] mr-2'>513</span>/ 1000 ETH
 						</h3>
-						<div className=' h-[30px]  flex items-center  justify-center gap-x-2 bg-[#FFFFFF1A] rounded-lg px-2 py-1 max-[439px]:hidden'>
+						<div className=' h-[30px]  flex items-center  justify-center gap-x-2 bg-[#FFFFFF1A] rounded-lg px-2 py-1 max-[850px]:hidden'>
 							<div className='w-[12px] h-[12px] rounded-full bg-[#14FF00] max-[539px]:w-[8px] max-[539px]:h-[8px]'></div>
 							<p className='max-[539px]:text-[10px]'>LIVE</p>
 						</div>
 					</div>
-					<progress className='w-[80%] mb-3' value={number} max={1000} />
-				</div>
-				<div className='flex justify-between w-[75%] mb-20 max-[604px]:mb-8'>
-					<p className='text-[22px] max-[539px]:text-base'>Start</p>
-					<div className='text-[22px] max-[539px]:text-base'>
-						<p className='text-[#0066FF]'>500 ETH</p>
-						<p>Soft Cap</p>
+					<progress className='w-full mb-3' value={number} max={1000} />
+					<div className='flex justify-between w-full mb-20 max-[510px]:mb-6 max-[604px]:mb-8'>
+						<p className='text-[22px] max-[539px]:text-base ml-[5%] max-[850px]:text-[19px] max-[510px]:ml-0 max-[510px]:text-[18px]'>
+							Start
+						</p>
+						<div className='text-[22px] max-[539px]:text-base max-[850px]:text-[19px] max-[510px]:text-[20px]'>
+							<p className='text-[#0066FF] font-semibold '>500 ETH</p>
+							<p className='max-[510px]:text-[18px] '>Soft Cap</p>
+						</div>
+						<div className='text-[22px] max-[539px]:text-base max-[850px]:text-[19px] max-[510px]:text-[20px]'>
+							<p className='text-[#0066FF] font-semibold'>1000 ETH</p>
+							<p className='max-[510px]:text-[18px]'>Hard Cap</p>
+						</div>
 					</div>
-					<div className='text-[22px] max-[539px]:text-base'>
-						<p className='text-[#0066FF]'>1000 ETH</p>
-						<p>Hard Cap</p>
-					</div>
 				</div>
-				<div className='flex w-[90%] justify-between flex-wrap max-[747px]:gap-20 max-[900px]:gap-24 max-[524px]:gap-7 max-[747px]:justify-center max-[900px]:w-[80%]'>
+
+				<div className='flex w-[90%] justify-between flex-wrap max-[900px]:gap-x-20 max-[811px]:gap-x-10 max-[900px]:gap-y-10 max-[524px]:gap-7  max-[900px]:w-[70%]  static-items max-[668px]:gap-x-0 max-[668px]:gap-y-5 max-[510px]:w-[90%]'>
 					{statistic.map(item => (
 						<>
-							<div className='flex justify-center max-[524px]:w-28  max-[900px]:w-40 w-36 flex-col max-[631px]:w-28 '>
-								<h5 className='text-[22px] max-[747px]:text-3xl max-[631px]:text-[1.2rem] max-[524px]:text-base max-[900px]:text-[28px]'>
+							<div className='flex justify-center max-[524px]:w-28 w-36 flex-col  items-center max-[668px]:w-30'>
+								<h5 className='text-[22px]  max-[631px]:text-[1.2rem] max-[524px]:text-base max-[990px]:text-[18px] max-[900px]:text-[22px] max-[668px]:text-[18px] '>
 									{item.desc}
 								</h5>
-								<h6 className='text-[#0066FF] text-[32px] font-bold max-[631px]:text-[1.3rem]'>
+								<h6 className='text-[#0066FF] text-[32px] font-bold max-[631px]:text-[1.3rem] max-[990px]:text-[1.3rem]'>
 									{item.title}
 								</h6>
 							</div>
-							<hr className='h-[53px] last:hidden max-[900px]:even:hidden border-2  border-[#0166FF] m-auto' />
+							<hr className='h-[53px] max-[900px]:first:hidden last:hidden  border-2  border-[#0166FF] m-auto max-[510px]:border-1' />
 						</>
 					))}
 				</div>

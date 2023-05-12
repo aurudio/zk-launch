@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import diagram from '../../../public/Tokenomics.svg'
+import { useRouter } from 'next/router'
 
 export const statistic = [
 	{ id: 1, title: '$0.05', desc: 'Pre-Sale Price' },
@@ -16,11 +17,16 @@ const Tokenomics = () => {
 		{ id: 4, title: 'Teams', value: '30 000 000', color: '#FFA012' },
 	]
 
+	const { pathname } = useRouter()
+
 	return (
-		<section className='flex flex-col items-start px-5 relative overflow-hidden w-full max-[503px]:px-0'>
+		<section
+			id='Tokenomics'
+			className='flex flex-col items-start px-5 relative overflow-hidden w-full max-[503px]:px-0'
+		>
 			<div className='w-full max-w-7xl  mx-auto z-[1]'>
 				<div>
-					<h2 className='text-5xl font-semibold mb-6 max-[503px]:text-[32px] max-[503px]:ml-2'>
+					<h2 className='font-semibold mb-6 max-[640px]:text-[2rem] text-4xl lg:text-5xl max-[503px]:ml-2'>
 						Tokenomics
 					</h2>
 					<div className='flex items-center mb-20 gap-x-[66px] max-[902px]:flex-col'>
@@ -34,13 +40,13 @@ const Tokenomics = () => {
 								<h3 className='text-[32px] font-semibold max-[1046px]:text-[24px] max-[503px]:text-[32px]'>
 									$ZKL Token
 								</h3>
-								<p className='text-[22px] font-normal w-full text-[#949494] max-[1046px]:text-[18px]'>
+								<p className='text-[22px] font-normal w-full text-[#949494] max-[1046px]:text-[18px] max-[600px]:text-white'>
 									First token bringing real utility into launchpads by offering
 									both professional customizable tools for builders and more
 									allocations with special perks for investors
 								</p>
 							</div>
-							<div className='flex flex-wrap gap-6 mb-3 max-[1046px]:gap-3 max-[841px]:justify-between max-[841px]:gap-y-6'>
+							<div className='flex flex-wrap gap-6 mb-3 max-[1046px]:gap-3 max-[841px]:justify-between max-[841px]:gap-y-6 max-[409px]:gap-2'>
 								{tokens.map(item => (
 									<div
 										className='flex w-60 max-[1227px]:w-48 gap-x-2 max-[841px]:gap-y-20  max-[1046px]:w-40 max-[841px]:w-40 max-[503px]:w-44'
@@ -69,20 +75,24 @@ const Tokenomics = () => {
 							</p>
 						</div>
 					</div>
-					<div className='relative px-[92px] max-[841px]:px-[80px] py-16 border border-[#1E69FF] rounded-2xl max-[503px]:hidden'>
-						<p className='uppercase absolute right-12 -top-5 py-[10.5px] px-2 border border-[#1E69FF] rounded-md bg-black'>
+					<div
+						className={`relative px-[92px] max-[841px]:px-[80px] py-16 border border-[#1E69FF] rounded-2xl max-[503px]:${
+							pathname !== '/' ? 'hidden' : ''
+						} max-[850px]:hidden max-[503px]:mx-2 `}
+					>
+						<p className='uppercase absolute right-12 max-[640px]:hidden -top-5 py-[6.5px] px-2 border border-[#1E69FF] rounded-md bg-black'>
 							token
 						</p>
-						<div className='flex gap-x-10 justify-center'>
+						<div className='flex max-[425px]:flex-wrap gap-10 justify-center '>
 							{statistic.map(item => (
 								<div
-									className='flex items-center flex-col w-[23%] gap-y-3'
+									className='flex items-center max-[425px]:w-4/12 flex-col w-[23%] gap-y-3'
 									key={item.id}
 								>
 									<h5 className='text-5xl font-semibold max-[841px]:text-3xl'>
 										{item.title}
 									</h5>
-									<h6 className='text-[#0066FF] text-xl font-bold max-[841px]:text-sm'>
+									<h6 className='text-[#0066FF] text-xl text-center font-bold max-[841px]:text-sm'>
 										{item.desc}
 									</h6>
 								</div>

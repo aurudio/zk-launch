@@ -35,6 +35,12 @@ progress::-moz-progress-bar {
 	border-radius: 10px;
 }
 
+@media (max-width: 900px) {
+	.static-items > hr:nth-child(4) {
+		display: none;
+	}
+}
+
 @font-face {
 	font-family: 'GR-regular';
 	src: url('../fonts/Gilroy-Regular.ttf');
@@ -52,6 +58,10 @@ progress::-moz-progress-bar {
 	src: url('../fonts/Gilroy-ExtraBold.ttf');
 }
 
+* {
+	scroll-behavior: smooth;
+}
+
 @layer components {
 	.roadmap__list-title {
 		@apply font-semibold text-[28px];
@@ -66,8 +76,7 @@ progress::-moz-progress-bar {
 		@apply hidden;
 	}
 
-	.global-community-cards1:last-child,
-	.global-community-cards2:first-child {
-		@apply md:w-[50vw];
+	.statistic-hr:nth-child(odd) {
+		@apply shadow-[2px_0_0_#0166FF];
 	}
 }

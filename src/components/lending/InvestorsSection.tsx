@@ -34,6 +34,7 @@ const Investors = () => {
 			<div className='hidden p-[0.375rem] max-[640px]:flex mx-auto border border-[#292A2B] rounded-full'>
 				{blocks.map(item => (
 					<button
+						key={item.id}
 						className={`${
 							state == item.title ? 'bg-[#0075FF]' : 'bg-transparent'
 						} duration-300 px-7 py-[14.5px] rounded-full font-semibold`}
