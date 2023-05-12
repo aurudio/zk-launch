@@ -7,9 +7,12 @@ import { statistic } from '../lending/TokenomicsSection'
 
 const MainSection = () => {
 	const [number, setNumber] = useState<null | number>(null)
+	const [eth, setEth] = useState(0.0)
+	const [ZKL, setZKL] = useState(0)
+
 	return (
 		<div className='mt-[120px] max-[678px]:mt-[50px] flex flex-col items-center mb-[10rem] max-[893px]:mb-[6rem]'>
-			<div className='flex flex-col items-center text-center mb-[101px]'>
+			{/* <div className='flex flex-col items-center text-center mb-[101px]'>
 				<h2 className='font-semibold md:text-[4rem] sm:text-[3rem] w-3/5 leading-[100%] mb-6 max-[647px]:text-[2.5rem] max-[647px]:w-4/5 max-[439px]:text-left max-[439px]:w-[90%] max-[900px]:w-[80%] max-[500px]:mt-[32px] max-[600px]:leading-[52px]'>
 					Invest in the future of zero knowledge technology
 				</h2>
@@ -48,6 +51,87 @@ const MainSection = () => {
 				<p className='text-sm'>
 					Pre-Sale Price: <span className='font-semibold'>$0.05</span>
 				</p>
+			</div> */}
+			<div className='flex max-w-7xl px-5 mb-[7.875rem] w-full justify-between max-[1150px]:flex-col items-center gap-y-8'>
+				<div className='flex flex-col gap-y-6 w-[38rem] max-[640px]:w-full'>
+					<h1 className='text-[4rem] max-[1150px]:text-[48px] font-semibold leading-[4rem]'>
+						<span className='text-[#0870FF]'>Invest in the future</span> <br />
+						of zero knowledge technology
+					</h1>
+					<p className='font-normal text-2xl max-[1150px]:text-[22px] leading-8'>
+						zkLaunch offers a simple way to fundraise and get initial traction
+						for new exciting projects
+					</p>
+				</div>
+				<div className='flex flex-col min-[1150px]:py-8 max-[1150px]:w-full min-[1150px]:px-6 min-[1150px]:border border-[#0870FF] rounded-xl bg-black'>
+					<div className='flex justify-between mb-6 max-[1150px]:hidden'>
+						<h4 className='font-bold text-[1.75rem]'>Buy $ZKL</h4>
+						<div className=' h-[30px]  flex items-center  justify-center gap-x-2 bg-[#FFFFFF1A] rounded-lg px-2 py-1 max-[850px]:hidden'>
+							<div className='w-[12px] h-[12px] rounded-full bg-[#14FF00] max-[539px]:w-[8px] max-[539px]:h-[8px]'></div>
+							<p className='max-[539px]:text-[10px]'>LIVE</p>
+						</div>
+					</div>
+					<div className='flex flex-col gap-y-8 items-center '>
+						<div className='flex flex-col gap-y-4 max-[1150px]:w-full'>
+							<div className='flex justify-between items-start  border border-[#0870FF] rounded-lg py-3 pl-4 pr-6 max-[1150px]:justify-between min-[1150px]:gap-x-[98px]'>
+								<div className=''>
+									<p className='font-bold mb-1'>You invest</p>
+									<input
+										value={eth + ' ' + 'ETH'}
+										onChange={e => {
+											const value = e.target.value.replace(/\D/g, '')
+
+											setEth(+value)
+										}}
+										type='text'
+										className='w-[13.125rem] mb-[7px] pl-2 rounded-[0.25rem] py-[0.625rem] bg-[#0E0E0F] text-4xl font-bold text-[#4C4C5A]'
+									/>
+									<p className='text-lg font-medium text-[#0870FF]'>$ 0.00</p>
+								</div>
+								<p className='min-[1150px]:hidden text-[#0870FF] font-medium'>
+									{eth} ETH
+								</p>
+								<div className='text-right max-[1150px]:hidden'>
+									<p className='font-bold mb-[9px]'>
+										Balance: <span className='text-[#0870FF]'>{eth} ETH</span>
+									</p>
+									<button className='bg-[#0870FF] font-medium py-[8.5px] rounded-[0.25rem] px-3'>
+										MAX
+									</button>
+								</div>
+							</div>
+							<div className='flex justify-between border border-[#0870FF] rounded-lg py-3 pl-4 pr-6 max-[1150px]:justify-between min-[1150px]:gap-x-[98px]'>
+								<div className=''>
+									<p className='font-bold mb-1'>You Recieve</p>
+									<input
+										value={ZKL}
+										onChange={e => {
+											const value = e.target.value.replace(/\D/g, '')
+
+											setZKL(+value)
+										}}
+										type='text'
+										className='w-[13.125rem] mb-[7px] pl-2 rounded-[0.25rem] py-[0.625rem] bg-[#0E0E0F] text-4xl font-bold text-[#0870FF]'
+									/>
+									<p className='text-lg font-medium'>1 ZKL = $0.05</p>
+								</div>
+								<p className='min-[1150px]:hidden text-[#0870FF] font-medium'>
+									{ZKL} ZKL
+								</p>
+								<div className='max-[1150px]:hidden'>
+									<p className='font-bold'>
+										Balance: <span className='text-[#0870FF]'>{ZKL} </span>
+										$ZKL
+									</p>
+								</div>
+							</div>
+						</div>
+						<button className='flex w-[360px] justify-center bg-gradient-to-r from-[#0038FF] via-purple-500 to-pink-500 py-[16px] rounded-lg text-xl font-medium shadow-[0_0_20px_#0066FF] mb-2'>
+							<Image src={wallet} alt='wallet' className='mr-[8px]' />
+							Connect Wallet
+						</button>
+					</div>
+				</div>
 			</div>
 			<div className='w-[80%] max-[439px]:w-[90%] border border-[#0066FF] rounded-2xl py-[60px]  backdrop-blur-[10px] flex flex-col items-center relative max-w-[924px] max-[510px]:py-[42px]'>
 				<div className='flex flex-col w-full px-[118px] max-[900px]:px-[70px] max-[510px]:p-[20px]'>
