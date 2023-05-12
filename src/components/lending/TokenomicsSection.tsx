@@ -13,7 +13,7 @@ const Tokenomics = () => {
 	const tokens = [
 		{ id: 1, title: 'DAO Treasury*', value: '50 000 000', color: '#C112FF' },
 		{ id: 2, title: 'Liquidity', value: '10 000 000', color: '#0055FF' },
-		{ id: 3, title: 'Community', value: '50 000 000', color: '#00FF59' },
+		{ id: 3, title: 'Community', value: '30 000 000', color: '#00FF59' },
 		{ id: 4, title: 'Teams', value: '10 000 000', color: '#FFA012' },
 	]
 
