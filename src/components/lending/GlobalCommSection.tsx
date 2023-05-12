@@ -6,6 +6,7 @@ import Image from 'next/image'
 
 const cards = [
 	{
+		site: 'https://discord.gg/zklaunch',
 		id: 1,
 		icon: discord,
 		title: 'Discord',
@@ -13,6 +14,7 @@ const cards = [
 		desc: 'Chat with like-minded people, dive into DeFi world.',
 	},
 	{
+		site: '	https://twitter.com/zk_launch',
 		id: 2,
 		icon: twitter,
 		title: 'Twitter',
@@ -20,6 +22,7 @@ const cards = [
 		desc: 'Follow updates and news on @zkLaunch and participate in giveaways',
 	},
 	{
+		site: 'https://zklaunch.medium.com',
 		id: 3,
 		icon: medium,
 		title: 'Medium',
@@ -27,6 +30,7 @@ const cards = [
 		desc: 'Get insights from zkLaunch news, progress and industry analysis',
 	},
 	{
+		site: 'https://github.com/zklaunch-app',
 		id: 4,
 		icon: github,
 		title: 'GitHub',
@@ -57,6 +61,7 @@ const GlobalCommunity = () => {
 			<div className='flex w-full justify-between max-[768px]:gap-y-8 flex-wrap gap-y-6 min-[1189px]:flex-row flex-col'>
 				{cards.map(item => (
 					<div
+						onClick={() => window.open(item.site)}
 						style={{ border: `1px ${item.color} solid` }}
 						key={item.id}
 						className='global-community-cards max-[1190px]:w-[90vw] cursor-pointer p-[1.5vw] max-[1190px]:p-8 rounded-2xl border bg-[#0F0F0F]'

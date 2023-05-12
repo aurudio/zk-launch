@@ -18,9 +18,21 @@ const Navbar = () => {
 		{ id: 4, title: 'Community' },
 	]
 
+	interface INav {
+		id: number
+		title: string
+	}
+	const [navArr, setNavArr] = useState<INav[]>(navs)
+
+	useEffect(() => {
+		if (pathname === '/pre-sale') {
+			setNavArr(navszkLaunch)
+		}
+	}, [])
+
 	const [vis, setVis] = useState(false)
 
-	const { push } = useRouter()
+	const { push, pathname } = useRouter()
 
 	const router = useRouter()
 	console.log(router.pathname === '/pre-sale')
@@ -65,8 +77,8 @@ const Navbar = () => {
 				</div>
 				<div className='relative flex justify-center w-full h-[90%]'>
 					<ul className='flex flex-col mb-6 w-full shadow-[inset0_-1px_0_#292A2B]'>
-						{router.pathname === '/pre-sale'
-							? navszkLaunch.map(item => (
+						{pathname === '/pre-sale'
+							? navArr.map(item => (
 									<li
 										onClick={() => setVis(false)}
 										className='p-5 text-left cursor-pointer font-bold shadow-[0_1px_0_#292A2B]'
