@@ -42,7 +42,7 @@ export default function App({ Component, pageProps }: AppProps) {
 					content='zkLaunch is a token launch platform that helps blockchain projects raise funds and increase their reach across the crypto ecosystem.'
 				/>
 
-				<meta property='twitter:image' content='preview.png' />
+				<meta property='twitter:image' content='/preview.png' />
 			</Head>
 			<Component {...pageProps} />
 		</div>
