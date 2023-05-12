@@ -32,7 +32,7 @@ const Tokenomics = () => {
 					<div className='flex items-center mb-20 gap-x-[66px] max-[902px]:flex-col'>
 						<Image
 							src={diagram}
-							className='w-[47vw] max-[902px]:w-[60vw] max-[902px]:mb-12 max-[503px]:w-[85vw]'
+							className='w-[47vw] min-[1470px]:w-[690px] max-[902px]:w-[60vw] max-[902px]:mb-12 max-[503px]:w-[85vw]'
 							alt=''
 						/>
 						<div className='flex flex-col w-[520px] max-[902px]:w-[90%]'>
@@ -49,7 +49,7 @@ const Tokenomics = () => {
 							<div className='flex flex-wrap gap-6 mb-3 max-[1046px]:gap-3 max-[841px]:justify-between max-[841px]:gap-y-6 max-[409px]:gap-2'>
 								{tokens.map(item => (
 									<div
-										className='flex w-60 max-[1227px]:w-48 gap-x-2 max-[841px]:gap-y-20  max-[1046px]:w-40 max-[841px]:w-40 max-[503px]:w-44'
+										className='flex xl:w-60 max-[1280px]:w-60 max-[1227px]:w-48 gap-x-2 max-[841px]:gap-y-20  max-[1046px]:w-40 max-[841px]:w-40 max-[503px]:w-44'
 										key={item.id}
 									>
 										<hr

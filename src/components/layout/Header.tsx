@@ -2,7 +2,7 @@ import Navbar from './Navbar'
 import arrow from '../../../public/arrow-right.svg'
 import Image from 'next/image'
 import Marquee from 'react-fast-marquee'
-import { useRouter } from 'next/router'
+// import { useRouter } from 'next/router'
 
 const Header = () => {
 	const news = [
@@ -21,7 +21,7 @@ const Header = () => {
 
 	return (
 		<header className='flex flex-col'>
-			<div
+			{/* <div
 				className='overflow-hidden bg-gradient-to-r max-[640px]:hidden from-[#FF8A00] to-[#D449F7] py-3'
 				// className={`${
 				// 	pathname === '/' ? 'block' : 'hidden'
@@ -34,7 +34,7 @@ const Header = () => {
 						))}
 					</div>
 				</Marquee>
-			</div>
+			</div> */}
 			<div className='flex cursor-pointer justify-center py-[15px] bg-[#1E69FF] font-semibold text-xs sm:text-base max-[500px]:hidden'>
 				<p
 					onClick={() =>
@@ -43,7 +43,12 @@ const Header = () => {
 						)
 					}
 				>
-					💻 We are giving away 3 x MacBook Pro! Enter to win here 🚀
+					💻 We are giving away 3 x MacBook Pro!{' '}
+					<span className='border-b-4 border-dotted border-black'>
+						{' '}
+						Enter to win here{' '}
+					</span>{' '}
+					🚀
 				</p>
 				<Image src={arrow} alt='' />
 			</div>

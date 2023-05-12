@@ -5,7 +5,6 @@ import unchecked from '../../../public/Ellipse 2 (1).svg'
 const april = [
 	{ id: 1, title: 'GitHub application', status: true },
 	{ id: 2, title: 'Whitelist announcement', status: true },
-	{ id: 3, title: 'Whitelist announcement', status: true },
 ]
 
 const may = [
