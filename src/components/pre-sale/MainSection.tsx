@@ -138,7 +138,7 @@ const MainSection = () => {
 					<div className='flex w-full justify-between max-[850px]:justify-center'>
 						<div className='max-[850px]:hidden'></div>
 						<h3 className='font-bold text-[32px] mb-[37px] max-[600px]:text-[28px] ml-11 max-[850px]:ml-0 max-[510px]:mb-[21px]'>
-							<span className='text-[#0066FF] mr-2'>513</span>/ 1000 ETH
+							<span className='text-[#0066FF] mr-2'>0</span>/ 1000 ETH
 						</h3>
 						<div className=' h-[30px]  flex items-center  justify-center gap-x-2 bg-[#FFFFFF1A] rounded-lg px-2 py-1 max-[850px]:hidden'>
 							<div className='w-[12px] h-[12px] rounded-full bg-[#14FF00] max-[539px]:w-[8px] max-[539px]:h-[8px]'></div>
@@ -154,7 +154,7 @@ const MainSection = () => {
 						<p className='text-[22px] max-[539px]:text-base ml-[5%] max-[850px]:text-[19px] max-[510px]:ml-0 max-[510px]:text-[18px]'>
 							Start
 						</p>
-						<div className='text-[22px] max-[539px]:text-base max-[850px]:text-[19px] max-[510px]:text-[20px]'>
+						<div className='text-[22px] max-[539px]:text-base max-[850px]:text-[19px] max-[510px]:text-[20px] max-[900px]:ml-9'>
 							<p className='text-[#0066FF] font-semibold '>500 ETH</p>
 							<p className='max-[510px]:text-[18px] '>Soft Cap</p>
 						</div>

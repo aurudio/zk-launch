@@ -32,7 +32,7 @@ const MainSection = () => {
 					<Image
 						src={donut}
 						alt=''
-						className='absolute  sm:-right-96 sm:-top-[170px] md:-right-[270px] w-[900px] -rotate-12  z-0 max-[786px]:hidden'
+						className='absolute  sm:-right-96 sm:-top-[100px] md:-right-[200px] w-[900px] -rotate-12  z-0 max-[786px]:hidden'
 					/>
 				</div>
 				<div
