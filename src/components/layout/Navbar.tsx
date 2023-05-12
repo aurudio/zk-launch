@@ -23,17 +23,18 @@ const Navbar = () => {
 		title: string
 	}
 	const [navArr, setNavArr] = useState<INav[]>(navs)
+
 	useEffect(() => {
-		if (router.pathname === '/pre-sale') {
+		if (pathname === '/pre-sale') {
 			setNavArr(navszkLaunch)
 		}
 	}, [])
 
 	const [vis, setVis] = useState(false)
 
-	const { push } = useRouter()
+	const { push, pathname } = useRouter()
 
-	const router = useRouter()
+	console.log(pathname)
 
 	return (
 		<>
@@ -76,7 +77,7 @@ const Navbar = () => {
 				</div>
 				<div className='relative flex justify-center w-full h-[90%]'>
 					<ul className='flex flex-col mb-6 w-full shadow-[inset0_-1px_0_#292A2B]'>
-						{router.pathname === '/pre-sale'
+						{pathname === '/pre-sale'
 							? navArr.map(item => (
 									<li
 										onClick={() => setVis(false)}

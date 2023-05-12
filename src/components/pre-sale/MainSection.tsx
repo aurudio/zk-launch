@@ -26,8 +26,12 @@ const MainSection = () => {
 					</button>
 					<input
 						className='bg-black border border-[#FFFFFF1A] w-full h-[52px]  rounded-[8px] text-center text-2xl'
-						type='number'
-						onChange={e => setNumber(+e.target.value)}
+						type='text'
+						onChange={e => {
+							const value = e.target.value.replace(/\D/g, '')
+
+							setNumber(+value)
+						}}
 						value={number}
 					/>
 					<button
