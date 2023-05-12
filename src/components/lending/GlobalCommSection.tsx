@@ -5,37 +5,41 @@ import github from '../../../public/icon-github.svg'
 import Image from 'next/image'
 import Link from 'next/link'
 
+const cards = [
+	{
+		id: 1,
+		icon: discord,
+		title: 'Discord',
+		color: '#6947F6',
+		desc: 'Chat with like-minded people, dive into DeFi world.',
+	},
+	{
+		id: 2,
+		icon: twitter,
+		title: 'Twitter',
+		color: '#1DA1F2',
+		desc: 'Follow updates and news on @zkLaunch and participate in giveaways',
+	},
+]
+
+const cards2 = [
+	{
+		id: 3,
+		icon: medium,
+		title: 'Medium',
+		color: '#FFC017',
+		desc: 'Get insights from zkLaunch news, progress and industry analysis',
+	},
+	{
+		id: 4,
+		icon: github,
+		title: 'GitHub',
+		color: '#6947F6',
+		desc: 'Watch for tech updates to the code base and participate in the Bug Bounty program',
+	},
+]
+
 const GlobalCommunity = () => {
-	const cards = [
-		{
-			id: 1,
-			icon: discord,
-			title: 'Discord',
-			color: '#6947F6',
-			desc: 'Chat with like-minded people, dive into DeFi world.',
-		},
-		{
-			id: 2,
-			icon: twitter,
-			title: 'Twitter',
-			color: '#1DA1F2',
-			desc: 'Follow updates and news on @zkLaunch and participate in giveaways',
-		},
-		{
-			id: 3,
-			icon: medium,
-			title: 'Medium',
-			color: '#FFC017',
-			desc: 'Get insights from zkLaunch news, progress and industry analysis',
-		},
-		{
-			id: 4,
-			icon: github,
-			title: 'GitHub',
-			color: '#6947F6',
-			desc: 'Watch for tech updates to the code base and participate in the Bug Bounty program',
-		},
-	]
 	return (
 		<section className='flex flex-col items-start max-w-7xl mx-auto my-[190px] px-5'>
 			<h2 className='text-5xl font-semibold mb-6'>Global Community</h2>
@@ -46,22 +50,41 @@ const GlobalCommunity = () => {
 					buy zkPunks
 				</Link>
 			</p>
-			<div className='flex gap-x-6 w-full'>
-				{cards.map(item => (
-					<div
-						style={{ border: `1px ${item.color} solid` }}
-						key={item.id}
-						className='cursor-pointer p-8 rounded-2xl border bg-[#0F0F0F]'
-					>
-						<div className='flex flex-col'>
-							<Image src={item.icon} className='mb-4' alt='' />
-							<div className='flex flex-col gap-y-2 w-[228px]'>
-								<h5 className='font-bold text-[22px]'>{item.title}</h5>
-								<p className=''>{item.desc}</p>
+			<div className='flex w-full justify-between flex-wrap gap-6 md:flex-row flex-col'>
+				<div className='flex gap-x-6 gap-y-[1.375rem] md:flex-row flex-col'>
+					{cards.map(item => (
+						<div
+							style={{ border: `1px ${item.color} solid` }}
+							key={item.id}
+							className='global-community-cards1 cursor-pointer p-8 rounded-2xl border bg-[#0F0F0F]'
+						>
+							<div className='flex flex-col'>
+								<Image src={item.icon} className='mb-4' alt='' />
+								<div className='flex flex-col gap-y-2 w-[228px]'>
+									<h5 className='font-bold text-[22px]'>{item.title}</h5>
+									<p className=''>{item.desc}</p>
+								</div>
 							</div>
 						</div>
-					</div>
-				))}
+					))}
+				</div>
+				<div className='flex gap-x-6 gap-y-[1.375rem] md:flex-row flex-col'>
+					{cards2.map(item => (
+						<div
+							style={{ border: `1px ${item.color} solid` }}
+							key={item.id}
+							className='global-community-cards2 cursor-pointer p-8 rounded-2xl border bg-[#0F0F0F]'
+						>
+							<div className='flex flex-col'>
+								<Image src={item.icon} className='mb-4' alt='' />
+								<div className='flex flex-col gap-y-2 w-[228px]'>
+									<h5 className='font-bold text-[22px]'>{item.title}</h5>
+									<p className=''>{item.desc}</p>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
 			</div>
 		</section>
 	)

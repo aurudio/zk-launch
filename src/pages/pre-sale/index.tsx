@@ -19,8 +19,8 @@ const PreSale = () => {
 				{/* <div className='absolute w-[20vw] h-[20vw] bg-[#003EB9] left-[1763px] top-[329px] opacity-[0.3] blur-[300px]'></div> */}
 				<MainSection />
 				<Tokenomics />
-				{/* <Investors /> */}
-				{/* <GlobalCommunity /> */}
+				<Investors />
+				<GlobalCommunity />
 			</div>
 		</Layout>
 	)

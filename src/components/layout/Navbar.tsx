@@ -3,6 +3,7 @@ import Logo from '@/logo.svg'
 import burger from '@/burger.svg'
 import { useState } from 'react'
 import closeBtn from '@/close-btn.svg'
+import { useRouter } from 'next/router'
 
 const Navbar = () => {
 	const navs = [
@@ -14,11 +15,18 @@ const Navbar = () => {
 
 	const [vis, setVis] = useState(false)
 
+	const { push } = useRouter()
+
 	return (
 		<>
 			<nav className=' w-full shadow-[0_1px_0_#292A2B]'>
 				<div className='max-w-7xl px-5 w-full flex items-center mx-auto justify-between'>
-					<Image src={Logo} alt='' />
+					<Image
+						src={Logo}
+						alt=''
+						onClick={() => push('/')}
+						className='cursor-pointer'
+					/>
 					<ul className='md:flex max-[850px]:text-sm hidden'>
 						{navs.map(item => (
 							<li className='p-5 cursor-pointer' key={item.id}>

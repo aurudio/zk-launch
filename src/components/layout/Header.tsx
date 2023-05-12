@@ -33,7 +33,7 @@ const Header = () => {
 					))}
 				</div>
 			</div>
-			<div className='flex cursor-pointer justify-center py-[15px] bg-[#1E69FF] font-semibold text-xs sm:text-base'>
+			<div className='flex cursor-pointer justify-center py-[15px] bg-[#1E69FF] font-semibold text-xs sm:text-base max-[500px]:hidden'>
 				<p>
 					🎉 zkLaunch just became more affordable! Check out our new pricing
 					plans! 🎉
