@@ -1,8 +1,8 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 import Image from 'next/image'
-import Logo from '@/logo.svg'
+import Logo from '@/zkl_logo.svg'
 import burger from '@/burger.svg'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import closeBtn from '@/close-btn.svg'
 import { useRouter } from 'next/router'
 
@@ -13,28 +13,15 @@ const Navbar = () => {
 		{ id: 3, title: 'Roadmap' },
 		{ id: 4, title: 'Community' },
 	]
+
 	const navszkLaunch = [
 		{ id: 2, title: 'Tokenomics' },
 		{ id: 4, title: 'Community' },
 	]
 
-	interface INav {
-		id: number
-		title: string
-	}
-	const [navArr, setNavArr] = useState<INav[]>(navs)
-
-	useEffect(() => {
-		if (pathname === '/pre-sale') {
-			setNavArr(navszkLaunch)
-		}
-	}, [])
-
 	const [vis, setVis] = useState(false)
 
 	const { push, pathname } = useRouter()
-
-	console.log(pathname)
 
 	return (
 		<>
@@ -77,8 +64,8 @@ const Navbar = () => {
 				</div>
 				<div className='relative flex justify-center w-full h-[90%]'>
 					<ul className='flex flex-col mb-6 w-full shadow-[inset0_-1px_0_#292A2B]'>
-						{pathname === '/pre-sale'
-							? navArr.map(item => (
+						{pathname === '/presale'
+							? navszkLaunch.map(item => (
 									<li
 										onClick={() => setVis(false)}
 										className='p-5 text-left cursor-pointer font-bold shadow-[0_1px_0_#292A2B]'
@@ -88,7 +75,7 @@ const Navbar = () => {
 									</li>
 									// eslint-disable-next-line no-mixed-spaces-and-tabs
 							  ))
-							: navArr.map(item => (
+							: navs.map(item => (
 									<li
 										onClick={() => setVis(false)}
 										className='p-5 text-left cursor-pointer font-bold shadow-[0_1px_0_#292A2B]'

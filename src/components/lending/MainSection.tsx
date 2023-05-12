@@ -4,25 +4,30 @@ import donut from '@/1-.png'
 import rocket from '@/3-.png'
 import donut50 from '@/2.png'
 import stars from '@/zkLaunch-stars-bg 1.png'
+import { useRouter } from 'next/router'
 
 const MainSection = () => {
+	const { push } = useRouter()
+
 	return (
 		<section className='flex flex-col items-start relative overflow-hidden w-full'>
 			<div className='w-full max-w-7xl px-5 mx-auto z-[1] pb-[11.875rem] max-[983px]:pb-[6rem]'>
 				<div className='mb-[5.625rem] md:mb-60 relative flex justify-start'>
 					<div className='flex flex-col gap-y-6 items-start mt-28 w-[719px] z-[1]'>
-						<h1 className='font-semibold text-5xl md:text-[3.5rem] lg:text-[4rem]'>
-							BUILT TO LAUNCH THE MOST ANTICIPATED BLOCKCHAIN PROJECTS IN ZKSYNC
-							ERA
+						<h1 className='font-semibold text-5xl md:text-[3.5rem] uppercase lg:text-[4rem]'>
+							Focus on building. We will handle everything else
 						</h1>
 						<p className='text-[22px] text-[#F3F5F8]'>
 							zkLaunch is the ultimate decentralized fundraising and marketing
 							platform for teams from all over the world
 						</p>
-						{/* <button className='py-[8.5px] pl-6 pr-4 bg-[#1E69FF] rounded-lg flex items-center gap-x-28 hover:btn-hover active:ring-4 active:ring-[#0055FF59] active:duration-200 duration-200 hover:duration-200 max-[640px]:justify-between max-[640px]:w-full'>
-							<p className='text-xl'>Launch App</p>
+						<button
+							onClick={() => push('/presale')}
+							className='py-[8.5px] pl-6 pr-4 bg-[#1E69FF] rounded-lg flex items-center gap-x-28 hover:btn-hover active:ring-4 active:ring-[#0055FF59] active:duration-200 duration-200 hover:duration-200 max-[640px]:justify-between max-[640px]:w-full'
+						>
+							<p className='text-xl'>Private Sale</p>
 							<Image src={arrow} alt='' />
-						</button> */}
+						</button>
 					</div>
 					<Image
 						src={donut}
