@@ -69,4 +69,8 @@ progress::-moz-progress-bar {
 	.roadmap-list::-webkit-scrollbar {
 		@apply hidden;
 	}
+
+	.statistic-hr:nth-child(odd) {
+		@apply shadow-[2px_0_0_#0166FF];
+	}
 }

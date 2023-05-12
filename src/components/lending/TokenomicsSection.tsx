@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import diagram from '../../../public/Tokenomics.svg'
+import { useRouter } from 'next/router'
 
 export const statistic = [
 	{ id: 1, title: '$0.05', desc: 'Pre-Sale Price' },
@@ -15,6 +16,8 @@ const Tokenomics = () => {
 		{ id: 3, title: 'Community', value: '50 000 000', color: '#00FF59' },
 		{ id: 4, title: 'Teams', value: '30 000 000', color: '#FFA012' },
 	]
+
+	const { pathname } = useRouter()
 
 	return (
 		<section
@@ -72,20 +75,24 @@ const Tokenomics = () => {
 							</p>
 						</div>
 					</div>
-					<div className='relative px-[92px] max-[841px]:px-[80px] py-16 border border-[#1E69FF] rounded-2xl max-[503px]:hidden'>
+					<div
+						className={`relative px-[92px] max-[841px]:px-[80px] py-16 border border-[#1E69FF] rounded-2xl max-[503px]:${
+							pathname !== '/' ? 'hidden' : ''
+						} max-[503px]:mx-2 `}
+					>
 						<p className='uppercase absolute right-12 max-[640px]:hidden -top-5 py-[6.5px] px-2 border border-[#1E69FF] rounded-md bg-black'>
 							token
 						</p>
-						<div className='flex gap-x-10 justify-center'>
+						<div className='flex max-[425px]:flex-wrap gap-10 justify-center '>
 							{statistic.map(item => (
 								<div
-									className='flex items-center flex-col w-[23%] gap-y-3'
+									className='flex items-center max-[425px]:w-4/12 flex-col w-[23%] gap-y-3'
 									key={item.id}
 								>
 									<h5 className='text-5xl font-semibold max-[841px]:text-3xl'>
 										{item.title}
 									</h5>
-									<h6 className='text-[#0066FF] text-xl font-bold max-[841px]:text-sm'>
+									<h6 className='text-[#0066FF] text-xl text-center font-bold max-[841px]:text-sm'>
 										{item.desc}
 									</h6>
 								</div>

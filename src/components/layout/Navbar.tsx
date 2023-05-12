@@ -43,7 +43,7 @@ const Navbar = () => {
 			</nav>
 			<div
 				className={` ${
-					vis ? 'h-[100vh] pb-5' : 'h-0'
+					vis ? 'h-[100vh] pb-5' : 'h-0 duration-200'
 				} text-right overflow-hidden duration-500 fixed z-20 bg-black w-full`}
 			>
 				<div className='flex justify-between px-5'>
@@ -59,10 +59,11 @@ const Navbar = () => {
 					<ul className='flex flex-col mb-6 w-full shadow-[inset0_-1px_0_#292A2B]'>
 						{navs.map(item => (
 							<li
+								onClick={() => setVis(false)}
 								className='p-5 text-left cursor-pointer font-bold shadow-[0_1px_0_#292A2B]'
 								key={item.id}
 							>
-								{item.title}
+								<a href={`#${item.title}`}>{item.title}</a>
 							</li>
 						))}
 					</ul>
