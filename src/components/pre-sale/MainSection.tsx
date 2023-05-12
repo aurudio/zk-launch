@@ -77,7 +77,7 @@ const MainSection = () => {
 					</div>
 					<div className='flex flex-col gap-y-8 items-center '>
 						<div className='flex flex-col gap-y-4 max-[1150px]:w-full'>
-							<div className='flex flex-col border border-[#0870FF] rounded-lg py-3 pl-4 pr-6 min-w-[492px]'>
+							<div className='flex flex-col border border-[#0870FF] rounded-lg py-3 pl-4 pr-6'>
 								<div className='max-[1150px]:hidden flex justify-between flex-row'>
 									<p className='font-bold '>You Recieve</p>
 
@@ -169,7 +169,7 @@ const MainSection = () => {
 						<p className='text-[22px] max-[539px]:text-base ml-[5%] max-[850px]:text-[19px] max-[510px]:ml-0 max-[510px]:text-[18px]'>
 							Start
 						</p>
-						<div className='text-[22px] max-[539px]:text-base max-[850px]:text-[19px] max-[510px]:text-[20px]'>
+						<div className='text-[22px] max-[539px]:text-base max-[850px]:text-[19px] max-[510px]:text-[20px] max-[900px]:ml-9'>
 							<p className='text-[#0066FF] font-semibold '>500 ETH</p>
 							<p className='max-[510px]:text-[18px] '>Soft Cap</p>
 						</div>

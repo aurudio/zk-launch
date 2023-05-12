@@ -82,7 +82,7 @@ progress::-moz-progress-bar {
 
 	.discord,
 	.twitter,
-	.gitHub,
+	.github,
 	.medium {
 		transition: 0.3s;
 	}
@@ -102,7 +102,7 @@ progress::-moz-progress-bar {
 		box-shadow: 0 0 20px #ffc017;
 		transition: 0.3s;
 	}
-	.gitHub:hover {
+	.github:hover {
 		border: 1px solid #6947f6;
 		box-shadow: 0 0 20px #6947f6;
 		transition: 0.3s;
