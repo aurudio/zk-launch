@@ -22,12 +22,6 @@ const Navbar = () => {
 		id: number
 		title: string
 	}
-	const [navArr, setNavArr] = useState<INav[]>(navs)
-	useEffect(() => {
-		if (router.pathname === '/pre-sale') {
-			setNavArr(navszkLaunch)
-		}
-	}, [])
 
 	const [vis, setVis] = useState(false)
 
@@ -77,7 +71,7 @@ const Navbar = () => {
 				<div className='relative flex justify-center w-full h-[90%]'>
 					<ul className='flex flex-col mb-6 w-full shadow-[inset0_-1px_0_#292A2B]'>
 						{router.pathname === '/pre-sale'
-							? navArr.map(item => (
+							? navszkLaunch.map(item => (
 									<li
 										onClick={() => setVis(false)}
 										className='p-5 text-left cursor-pointer font-bold shadow-[0_1px_0_#292A2B]'
@@ -87,7 +81,7 @@ const Navbar = () => {
 									</li>
 									// eslint-disable-next-line no-mixed-spaces-and-tabs
 							  ))
-							: navArr.map(item => (
+							: navs.map(item => (
 									<li
 										onClick={() => setVis(false)}
 										className='p-5 text-left cursor-pointer font-bold shadow-[0_1px_0_#292A2B]'
