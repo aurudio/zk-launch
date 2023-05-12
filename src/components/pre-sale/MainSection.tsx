@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import plus from '@/Union.svg'
+// import plus from '@/Union.svg'
 import Image from 'next/image'
-import minus from '@/Rectangle 7.svg'
+// import minus from '@/Rectangle 7.svg'
 import wallet from '@/wallet.svg'
 import { statistic } from '../lending/TokenomicsSection'
 
