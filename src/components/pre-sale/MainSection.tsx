@@ -20,7 +20,7 @@ const MainSection = () => {
 					zkLaunch offers a simple way to fundraise and get initial traction for
 					new exciting projects
 				</p>
-				<div className='relative w-[360px] flex items-center justify-between mb-4'>
+				<div className='relative w-[360px] flex items-center justify-between mb-4 max-[390px]:w-[310px]'>
 					<button
 						className='absolute left-1.5  w-[40px] h-[40px] rounded-[6px] bg-[#FFFFFF1A] flex justify-center items-center'
 						onClick={() => setNumber(number ? number + 1 : null)}
@@ -44,7 +44,7 @@ const MainSection = () => {
 						<Image src={plus} alt='plus' />
 					</button>
 				</div>
-				<button className='flex w-[360px] justify-center bg-gradient-to-r from-[#0038FF] via-purple-500 to-pink-500 py-[16px] rounded-lg text-xl font-medium shadow-[0_0_20px_#0066FF] mb-2'>
+				<button className='flex w-[360px] justify-center bg-gradient-to-r from-[#0038FF] via-purple-500 to-pink-500 py-[16px] rounded-lg text-xl font-medium shadow-[0_0_20px_#0066FF] mb-2 max-[390px]:w-[310px]'>
 					<Image src={wallet} alt='wallet' className='mr-[8px]' />
 					Connect Wallet
 				</button>
@@ -169,7 +169,7 @@ const MainSection = () => {
 					</div>
 				</div>
 
-				<div className='flex w-[90%] justify-between flex-wrap max-[900px]:gap-x-20 max-[811px]:gap-x-10 max-[900px]:gap-y-10 max-[524px]:gap-7  max-[900px]:w-[70%]  static-items max-[668px]:gap-x-0 max-[668px]:gap-y-5 max-[510px]:w-[90%]'>
+				<div className='flex w-[90%] justify-between flex-wrap max-[900px]:gap-x-20 max-[811px]:gap-x-10 max-[900px]:gap-y-10 max-[524px]:gap-7  max-[900px]:w-[70%]  static-items max-[668px]:gap-x-0 max-[668px]:gap-y-5 max-[510px]:w-[90%] max-[391px]:gap-x-3 max-[354px]:gap-x-1'>
 					{statistic.map(item => (
 						<>
 							<div className='flex justify-center max-[524px]:w-28 w-36 flex-col  items-center max-[668px]:w-30'>

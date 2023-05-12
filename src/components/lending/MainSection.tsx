@@ -78,7 +78,7 @@ const MainSection = () => {
 				<Image
 					src={donut50}
 					alt=''
-					className='absolute min-[980px]:top-[59rem] sm:top-[60rem] sm:-right-44 top-[70rem] -right-48 object-cover max-[580px]:-right-32 max-[580px]:top-[65rem] max-[56px]:top-[65rem] max-[550px]:top-[70rem] md:top-[63rem] lg:top-[65rem] z-[-1] md:right-0 lg:right-12 min-[684px]:top-[50rem] max-[639px]:top-[55rem]'
+					className='absolute min-[980px]:top-[59rem] sm:top-[60rem] sm:-right-44 top-[70rem] -right-48 object-cover max-[580px]:-right-32 max-[580px]:top-[60rem] max-[56px]:top-[65rem] max-[550px]:top-[70rem] md:top-[68rem] lg:top-[68rem] z-[-1] md:right-0 lg:right-12 min-[684px]:top-[50rem] max-[639px]:top-[55rem] max-[440px]:top-[75rem]'
 				/>
 			</div>
 
