@@ -8,7 +8,7 @@ import stars from '@/zkLaunch-stars-bg 1.png'
 const MainSection = () => {
 	return (
 		<section className='flex flex-col items-start relative overflow-hidden w-full'>
-			<div className='w-full max-w-7xl px-5 mx-auto z-[1] pb-[11.875rem] max-[983px]:pb-[6rem] max-[983px]:pb-[5rem]'>
+			<div className='w-full max-w-7xl px-5 mx-auto z-[1] pb-[11.875rem] max-[983px]:pb-[6rem]'>
 				<div className='mb-[5.625rem] md:mb-60 relative flex justify-start'>
 					<div className='flex flex-col gap-y-6 items-start mt-28 w-[719px] z-[1]'>
 						<h1 className='font-semibold text-5xl md:text-[3.5rem] lg:text-[4rem]'>
@@ -58,7 +58,7 @@ const MainSection = () => {
 						</div>
 					</div>
 				</div>
-				<div className='flex mx-auto items-center max-w-7xl w-full mt-[11.875rem] max-[900px]:mt-16  z-[2]'>
+				<div className='flex mx-auto items-center max-w-7xl w-full mt-[11.875rem] max-[900px]:mt-16 z-[2]'>
 					<div className='flex flex-col w-[600px] pt-14 gap-y-6'>
 						<h3 className='font-semibold md:text-4xl lg:text-5xl text-[2rem]'>
 							What do we do?

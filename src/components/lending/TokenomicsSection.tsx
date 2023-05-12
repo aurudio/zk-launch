@@ -22,7 +22,7 @@ const Tokenomics = () => {
 	return (
 		<section
 			id='Tokenomics'
-			className='flex flex-col items-start px-5 relative overflow-hidden w-full max-[503px]:px-0'
+			className='flex flex-col items-start px-5 relative overflow-hidden w-full max-[503px]:px-1'
 		>
 			<div className='w-full max-w-7xl  mx-auto z-[1]'>
 				<div>
