@@ -4,6 +4,7 @@ import discord from '@/gray-icon-discord.svg'
 import github from '@/gray-icon-github.svg'
 import medium from '@/gray-icon-medium.svg'
 import logo from '@/logo.svg'
+import { useRouter } from 'next/router'
 
 const Footer = () => {
 	const icons = [
@@ -20,6 +21,13 @@ const Footer = () => {
 		{ id: 4, title: 'Community' },
 	]
 
+	const listzkLaunch = [
+		{ id: 2, title: 'Tokenomics' },
+		{ id: 4, title: 'Community' },
+	]
+
+	const { pathname } = useRouter()
+
 	return (
 		<div className='sm:py-[69px] pt-9 pb-8 flex flex-col items-center shadow-[0_-1px_0_#292A2B]'>
 			<div className='flex justify-between items-end max-w-7xl w-full px-5 mb-[2.875rem] sm:mb-[6.375rem]'>
@@ -30,14 +38,25 @@ const Footer = () => {
 					</p>
 				</div>
 				<ul className='flex max-[1150px]:hidden'>
-					{list.map(item => (
-						<li
-							key={item.id}
-							className='text-[#686A6D] p-5 text-lg font-normal cursor-pointer'
-						>
-							{item.title}
-						</li>
-					))}
+					{pathname === '/presale'
+						? listzkLaunch.map(item => (
+								<li
+									key={item.id}
+									className='text-[#686A6D] p-5 text-lg font-normal cursor-pointer'
+								>
+									{item.title}
+								</li>
+								// eslint-disable-next-line no-mixed-spaces-and-tabs
+						  ))
+						: list.map(item => (
+								<li
+									key={item.id}
+									className='text-[#686A6D] p-5 text-lg font-normal cursor-pointer'
+								>
+									{item.title}
+								</li>
+								// eslint-disable-next-line no-mixed-spaces-and-tabs
+						  ))}
 				</ul>
 			</div>
 			<div className='flex items-center sm:justify-between sm:flex-row flex-col-reverse gap-y-12 max-w-7xl w-full px-5'>
