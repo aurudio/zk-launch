@@ -82,7 +82,7 @@ const MainSection = () => {
 									<p className='font-bold '>You Recieve</p>
 
 									<p className='font-bold'>
-										Balance: <span className='text-[#0870FF]'>{ZKL} </span>
+										Balance: <span className='text-[#0870FF]'>{eth} </span>
 										$ZKL
 									</p>
 								</div>
@@ -93,15 +93,15 @@ const MainSection = () => {
 											value={eth}
 											placeholder='0'
 											onChange={e => {
-												// const value = e.target.value.replace(/\D/g, '')
-												const value = e.target.value
-
-												setEth(value)
+												const regex = /^[0-9.]+$/ // только цифры и точка
+												if (regex.test(e.target.value)) {
+													setEth(e.target.value)
+												}
 											}}
 											type='text'
 											className='w-[13.125rem] mb-[7px] z-[10] pl-2 rounded-[0.25rem] py-[0.625rem] bg-transparent text-4xl font-bold placeholder:text-[#4C4C5A] text-[#4C4C5A]'
 										/>
-										<button className='bg-[#0870FF] font-medium mt-2 py-[8.5px] rounded-[0.25rem] px-3'>
+										<button className='bg-[#0870FF] max-[1150px]:hidden font-medium mt-2 py-[8.5px] rounded-[0.25rem] px-3'>
 											MAX
 										</button>
 									</div>
@@ -126,10 +126,10 @@ const MainSection = () => {
 										value={ZKL}
 										placeholder='0'
 										onChange={e => {
-											// const value = e.target.value.replace(/\D/g, '')
-											const value = e.target.value
-
-											setZKL(value)
+											const regex = /^[0-9.]+$/ // только цифры и точка
+											if (regex.test(e.target.value)) {
+												setZKL(e.target.value)
+											}
 										}}
 										type='text'
 										className='w-[13.125rem] mb-[7px] pl-2 rounded-[0.25rem] py-[0.625rem] bg-transparent text-4xl font-bold placeholder:text-[#0870FF] text-[#0870FF]'
