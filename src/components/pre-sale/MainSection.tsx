@@ -7,8 +7,8 @@ import { statistic } from '../lending/TokenomicsSection'
 
 const MainSection = () => {
 	const [number, setNumber] = useState<null | number>(null)
-	const [eth, setEth] = useState('0')
-	const [ZKL, setZKL] = useState('0')
+	const [eth, setEth] = useState('')
+	const [ZKL, setZKL] = useState('')
 
 	return (
 		<div className='mt-[120px] max-[678px]:mt-[50px] flex flex-col items-center mb-[10rem] max-[893px]:mb-[6rem]'>
@@ -77,12 +77,15 @@ const MainSection = () => {
 					</div>
 					<div className='flex flex-col gap-y-8 items-center '>
 						<div className='flex flex-col gap-y-4 max-[1150px]:w-full'>
-							<div className='flex flex-col border border-[#0870FF] rounded-lg py-3 pl-4 pr-6'>
+							<div className='flex min-[1150px]:min-w-[492px] flex-col border border-[#0870FF] rounded-lg py-3 pl-4 pr-6'>
 								<div className='max-[1150px]:hidden flex justify-between flex-row'>
 									<p className='font-bold '>You Recieve</p>
 
 									<p className='font-bold'>
-										Balance: <span className='text-[#0870FF]'>{eth} </span>
+										Balance:{' '}
+										<span className='text-[#0870FF]'>
+											{eth === '' ? 0 : eth}{' '}
+										</span>
 										$ZKL
 									</p>
 								</div>
@@ -95,6 +98,10 @@ const MainSection = () => {
 											onChange={e => {
 												const regex = /^[0-9.]+$/ // только цифры и точка
 												if (regex.test(e.target.value)) {
+													setEth(e.target.value)
+												}
+
+												if (e.target.value === '') {
 													setEth(e.target.value)
 												}
 											}}
@@ -111,12 +118,15 @@ const MainSection = () => {
 									{ZKL} ZKL
 								</p>
 							</div>
-							<div className='flex flex-col border border-[#0870FF] rounded-lg py-3 pl-4 pr-6 '>
+							<div className='flex flex-col border min-[1150px]:min-w-[492px] border-[#0870FF] rounded-lg py-3 pl-4 pr-6 '>
 								<div className='max-[1150px]:hidden flex justify-between flex-row'>
 									<p className='font-bold '>You Recieve</p>
 
 									<p className='font-bold'>
-										Balance: <span className='text-[#0870FF]'>{ZKL} </span>
+										Balance:{' '}
+										<span className='text-[#0870FF]'>
+											{ZKL === '' ? 0 : ZKL}{' '}
+										</span>
 										$ZKL
 									</p>
 								</div>
@@ -130,9 +140,13 @@ const MainSection = () => {
 											if (regex.test(e.target.value)) {
 												setZKL(e.target.value)
 											}
+
+											if (e.target.value === '') {
+												setZKL(e.target.value)
+											}
 										}}
 										type='text'
-										className='w-[13.125rem] mb-[7px] pl-2 rounded-[0.25rem] py-[0.625rem] bg-transparent text-4xl font-bold placeholder:text-[#0870FF] text-[#0870FF]'
+										className='w-[13.125rem] mb-[7px] pl-2 rounded-[0.25rem] py-[0.625rem] bg-transparent text-4xl font-bold placeholder:text-[#4C4C5A] text-[#4C4C5A]'
 									/>
 									<p className='text-lg font-medium'>1 ZKL = $0.05</p>
 								</div>
@@ -169,13 +183,17 @@ const MainSection = () => {
 						<p className='text-[22px] max-[539px]:text-base ml-[5%] max-[850px]:text-[19px] max-[510px]:ml-0 max-[510px]:text-[18px]'>
 							Start
 						</p>
-						<div className='text-[22px] max-[539px]:text-base max-[850px]:text-[19px] max-[510px]:text-[20px] max-[900px]:ml-9'>
-							<p className='text-[#0066FF] font-semibold '>500 ETH</p>
-							<p className='max-[510px]:text-[18px] '>Soft Cap</p>
+						<div className='text-[22px] max-[539px]:text-base max-[850px]:text-[19px] max-[510px]:text-[20px] ml-[1.2rem] max-[900px]:ml-[1.4rem] max-[510px]:ml-[3rem]'>
+							<p className='text-[#0066FF] text-center text-[20px] font-semibold '>
+								500 ETH
+							</p>
+							<p className='text-[18px] '>Soft Cap</p>
 						</div>
 						<div className='text-[22px] max-[539px]:text-base max-[850px]:text-[19px] max-[510px]:text-[20px]'>
-							<p className='text-[#0066FF] font-semibold'>1000 ETH</p>
-							<p className='max-[510px]:text-[18px]'>Hard Cap</p>
+							<p className='text-[#0066FF] font-semibold text-[20px] text-center '>
+								1000 ETH
+							</p>
+							<p className='text-[18px]'>Hard Cap</p>
 						</div>
 					</div>
 				</div>
