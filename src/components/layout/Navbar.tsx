@@ -18,17 +18,12 @@ const Navbar = () => {
 		{ id: 4, title: 'Community' },
 	]
 
-	interface INav {
-		id: number
-		title: string
-	}
-
 	const [vis, setVis] = useState(false)
 
 	const { push } = useRouter()
 
 	const router = useRouter()
-
+	console.log(router.pathname === '/pre-sale')
 	return (
 		<>
 			<nav className=' w-full shadow-[0_1px_0_#292A2B] z-100'>

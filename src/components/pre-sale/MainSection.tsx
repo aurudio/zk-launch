@@ -8,7 +8,7 @@ import { statistic } from '../lending/TokenomicsSection'
 const MainSection = () => {
 	const [number, setNumber] = useState(0)
 	return (
-		<div className='mt-[120px] max-[678px]:mt-[50px] flex flex-col items-center mb-[10rem] max-[893px]:mb-[6rem]'>
+		<div className='mt-[120px] max-[678px]:mt-[50px] flex flex-col items-center mb-[10rem] max-[893px]:mb-[6rem] max-[390px]:p-5'>
 			<div className='flex flex-col items-center text-center mb-[101px]'>
 				<h2 className='font-semibold md:text-[4rem] sm:text-[3rem] w-3/5 leading-[100%] mb-6 max-[647px]:text-[2.5rem] max-[647px]:w-4/5 max-[439px]:text-left max-[439px]:w-[90%] max-[900px]:w-[80%] max-[500px]:mt-[32px] max-[600px]:leading-[52px]'>
 					Invest in the future of zero knowledge technology
@@ -17,7 +17,7 @@ const MainSection = () => {
 					zkLaunch offers a simple way to fundraise and get initial traction for
 					new exciting projects
 				</p>
-				<div className='relative w-[360px] flex items-center justify-between mb-4'>
+				<div className='relative w-[360px] flex items-center justify-between mb-4 max-[390px]:w-[310px]'>
 					<button
 						className='absolute left-1.5  w-[40px] h-[40px] rounded-[6px] bg-[#FFFFFF1A] flex justify-center items-center'
 						onClick={() => setNumber(number - 1)}
@@ -37,7 +37,7 @@ const MainSection = () => {
 						<Image src={plus} alt='plus' />
 					</button>
 				</div>
-				<button className='flex w-[360px] justify-center bg-gradient-to-r from-[#0038FF] via-purple-500 to-pink-500 py-[16px] rounded-lg text-xl font-medium shadow-[0_0_20px_#0066FF] mb-2'>
+				<button className='flex w-[360px] justify-center bg-gradient-to-r from-[#0038FF] via-purple-500 to-pink-500 py-[16px] rounded-lg text-xl font-medium shadow-[0_0_20px_#0066FF] mb-2 max-[390px]:w-[310px]'>
 					<Image src={wallet} alt='wallet' className='mr-[8px]' />
 					Connect Wallet
 				</button>
