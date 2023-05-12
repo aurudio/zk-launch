@@ -54,7 +54,11 @@ const MainSection = () => {
 			</div> */}
 			<div className='flex max-w-7xl px-5 mb-[7.875rem] w-full justify-between max-[1150px]:flex-col items-center gap-y-8'>
 				<div className='flex flex-col gap-y-6 w-[38rem] max-[640px]:w-full'>
-					<h1 className='text-[4rem] max-[1150px]:text-[48px] font-semibold leading-[4rem]'>
+					<h1 className='text-[4rem] min-[500px]:hidden max-[1150px]:text-[48px] font-semibold leading-[4rem]'>
+						<span className='text-[#0870FF]'>Invest</span> in the future of{' '}
+						<span className='text-[#0870FF]'>zk</span> technology
+					</h1>
+					<h1 className='text-[4rem] max-[500px]:hidden max-[1150px]:text-[48px] font-semibold leading-[4rem]'>
 						<span className='text-[#0870FF]'>Invest in the future</span> <br />
 						of zero knowledge technology
 					</h1>
@@ -77,14 +81,14 @@ const MainSection = () => {
 								<div className=''>
 									<p className='font-bold mb-1'>You invest</p>
 									<input
-										value={eth + ' ' + 'ETH'}
+										value={eth}
 										onChange={e => {
 											const value = e.target.value.replace(/\D/g, '')
 
 											setEth(+value)
 										}}
 										type='text'
-										className='w-[13.125rem] mb-[7px] pl-2 rounded-[0.25rem] py-[0.625rem] bg-[#0E0E0F] text-4xl font-bold text-[#4C4C5A]'
+										className='w-[13.125rem] mb-[7px] pl-2 rounded-[0.25rem] py-[0.625rem] bg-transparent text-4xl font-bold text-[#4C4C5A]'
 									/>
 									<p className='text-lg font-medium text-[#0870FF]'>$ 0.00</p>
 								</div>
@@ -111,7 +115,7 @@ const MainSection = () => {
 											setZKL(+value)
 										}}
 										type='text'
-										className='w-[13.125rem] mb-[7px] pl-2 rounded-[0.25rem] py-[0.625rem] bg-[#0E0E0F] text-4xl font-bold text-[#0870FF]'
+										className='w-[13.125rem] mb-[7px] pl-2 rounded-[0.25rem] py-[0.625rem] bg-transparent text-4xl font-bold text-[#0870FF]'
 									/>
 									<p className='text-lg font-medium'>1 ZKL = $0.05</p>
 								</div>
@@ -126,7 +130,7 @@ const MainSection = () => {
 								</div>
 							</div>
 						</div>
-						<button className='flex w-[360px] justify-center bg-gradient-to-r from-[#0038FF] via-purple-500 to-pink-500 py-[16px] rounded-lg text-xl font-medium shadow-[0_0_20px_#0066FF] mb-2'>
+						<button className='flex w-[360px] max-[1150px]:w-full justify-center bg-gradient-to-r from-[#0038FF] via-purple-500 to-pink-500 py-[16px] rounded-lg text-xl font-medium shadow-[0_0_20px_#0066FF] mb-2'>
 							<Image src={wallet} alt='wallet' className='mr-[8px]' />
 							Connect Wallet
 						</button>
