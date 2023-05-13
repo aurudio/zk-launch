@@ -34,7 +34,9 @@
 		"tw-elements": "^1.0.0-beta2",
 		"typescript": "^5.0.4",
 		"viem": "^0.3.24",
-		"wagmi": "^1.0.2"
+		"wagmi": "^1.0.2",
+		"web3modal": "^1.0.0"
+
 	},
 	"devDependencies": {
 		"@types/lodash.merge": "^4.6.7",
