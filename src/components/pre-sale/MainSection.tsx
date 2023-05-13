@@ -169,13 +169,17 @@ const MainSection = () => {
 						<p className='text-[22px] max-[539px]:text-base ml-[5%] max-[850px]:text-[19px] max-[510px]:ml-0 max-[510px]:text-[18px]'>
 							Start
 						</p>
-						<div className='text-[22px] max-[539px]:text-base max-[850px]:text-[19px] max-[510px]:text-[20px] max-[900px]:ml-9'>
-							<p className='text-[#0066FF] font-semibold '>500 ETH</p>
-							<p className='max-[510px]:text-[18px] '>Soft Cap</p>
+						<div className='text-[22px] max-[539px]:text-base max-[850px]:text-[19px] max-[510px]:text-[20px] ml-[1.2rem] max-[900px]:ml-[1.4rem] max-[510px]:ml-[3rem]'>
+							<p className='text-[#0066FF] text-center text-[20px] font-semibold '>
+								500 ETH
+							</p>
+							<p className='text-[18px] '>Soft Cap</p>
 						</div>
 						<div className='text-[22px] max-[539px]:text-base max-[850px]:text-[19px] max-[510px]:text-[20px]'>
-							<p className='text-[#0066FF] font-semibold'>1000 ETH</p>
-							<p className='max-[510px]:text-[18px]'>Hard Cap</p>
+							<p className='text-[#0066FF] font-semibold text-[20px] text-center '>
+								1000 ETH
+							</p>
+							<p className='text-[18px]'>Hard Cap</p>
 						</div>
 					</div>
 				</div>
