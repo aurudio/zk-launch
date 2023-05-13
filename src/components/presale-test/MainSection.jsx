@@ -3,32 +3,36 @@ import React, { useState, useEffect } from 'react'
 // import minus from '@/Rectangle 7.svg'
 import { statistic } from '../lending/TokenomicsSection'
 import ConnectBtn from '../rainbow/ConnectButton'
+import { ConnectButton } from '@rainbow-me/rainbowkit'
+import { useAppSelector } from '@/hooks/hooks'
 
 const MainSection = () => {
 	const [eth, setEth] = useState('')
 	const [ZKL, setZKL] = useState('')
 	const [usd, setUsd] = useState(0)
 
-	function handleConvert(value: number) {
+	const user = useAppSelector(state => state.user.currentUser)
+
+	function handleConvert(value) {
 		const usd = value * 1808.91
 		const convert = usd.toFixed(10)
 
 		setUsd(+convert)
 	}
 
-	function convertZKLtoETH(zklAmount: any) {
+	function convertZKLtoETH(zklAmount) {
 		const ethRate = 0.0000282
 		const ethAmount = zklAmount * ethRate
 		return ethAmount
 	}
 
-	function convertETHtoZKL(ethAmount: any) {
+	function convertETHtoZKL(ethAmount) {
 		const zklRate = 35461.87
 		const zklAmount = ethAmount * zklRate
 		return zklAmount
 	}
 
-	function handleEthChange(event: any) {
+	function handleEthChange(event) {
 		const eth = parseFloat(event.target.value)
 		if (eth) {
 			const zkl = convertETHtoZKL(eth)
@@ -41,7 +45,7 @@ const MainSection = () => {
 		}
 	}
 
-	function handleZklChange(event: any) {
+	function handleZklChange(event) {
 		const zkl = parseFloat(event.target.value)
 		if (zkl) {
 			const eth = convertZKLtoETH(zkl)
@@ -133,7 +137,7 @@ const MainSection = () => {
 									<p className='font-bold'>
 										Balance:{' '}
 										<span className='text-[#0870FF]'>
-											{eth === '' ? 0 : eth} ETH
+											{/* {user?.displayBalance} */}
 										</span>
 									</p>
 								</div>
@@ -159,7 +163,7 @@ const MainSection = () => {
 												}
 											}}
 											type='text'
-											className='w-[13.125rem] mb-[7px] z-[10] pl-2 rounded-[0.25rem] py-[0.625rem] bg-transparent text-4xl font-bold placeholder:text-[#4C4C5A] text-[#4C4C5A]'
+											className='w-[13.125rem] mb-[7px] pl-2 rounded-[0.25rem] py-[0.625rem] bg-transparent text-4xl font-bold placeholder:text-[#4C4C5A] text-[#4C4C5A]'
 										/>
 										<button
 											onClick={() => setEth('999999999')}
@@ -181,7 +185,7 @@ const MainSection = () => {
 									<p className='font-bold'>
 										Balance:{' '}
 										<span className='text-[#0870FF]'>
-											{ZKL === '' ? 0 : ZKL}{' '}
+											{ZKL === '' ? 0 : 0}{' '}
 										</span>
 										$ZKL
 									</p>
@@ -213,7 +217,31 @@ const MainSection = () => {
 								</p>
 							</div>
 						</div>
-						<ConnectBtn />
+						<ConnectButton.Custom>
+							{({
+								account,
+								chain,
+								openAccountModal,
+								openChainModal,
+								openConnectModal,
+								authenticationStatus,
+								mounted,
+							}) => {
+								return (
+									<ConnectBtn
+										eth={eth}
+										zkl={ZKL}
+										account={account}
+										chain={chain}
+										openAccountModal={openAccountModal}
+										openChainModal={openChainModal}
+										openConnectModal={openConnectModal}
+										authenticationStatus={authenticationStatus}
+										mounted={mounted}
+									/>
+								)
+							}}
+						</ConnectButton.Custom>
 					</div>
 				</div>
 			</div>

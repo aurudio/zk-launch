@@ -14,14 +14,17 @@ import {
 	ledgerWallet,
 } from '@rainbow-me/rainbowkit/wallets'
 import { configureChains, createConfig, WagmiConfig } from 'wagmi'
-import { mainnet, zkSync, goerli } from 'wagmi/chains'
+import { mainnet, goerli, zkSyncTestnet, zkSync } from 'wagmi/chains'
 import { publicProvider } from 'wagmi/providers/public'
 import HeadMeta from '@/components/Head/Head'
 import merge from 'lodash.merge'
+import { Provider } from 'react-redux'
+import { store } from '@/redux/store'
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
 	[
 		mainnet,
+		zkSyncTestnet,
 		zkSync,
 		...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [goerli] : []),
 	],
@@ -75,7 +78,9 @@ export default function App({ Component, pageProps }: AppProps) {
 					appInfo={demoAppInfo}
 					chains={chains}
 				>
-					<Component {...pageProps} />
+					<Provider store={store}>
+						<Component {...pageProps} />
+					</Provider>
 				</RainbowKitProvider>
 			</WagmiConfig>
 		</div>
