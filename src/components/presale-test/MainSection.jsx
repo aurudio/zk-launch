@@ -4,14 +4,11 @@ import React, { useState, useEffect } from 'react'
 import { statistic } from '../lending/TokenomicsSection'
 import ConnectBtn from '../rainbow/ConnectButton'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
-import { useAppSelector } from '@/hooks/hooks'
 
 const MainSection = () => {
 	const [eth, setEth] = useState('')
 	const [ZKL, setZKL] = useState('')
 	const [usd, setUsd] = useState(0)
-
-	const user = useAppSelector(state => state.user.currentUser)
 
 	function handleConvert(value) {
 		const usd = value * 1808.91

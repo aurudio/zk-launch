@@ -4,8 +4,6 @@ import wallet from '@/wallet.svg'
 // import { ethers } from 'ethers'
 import WalletConnectProvider from '@walletconnect/web3-provider'
 import Web3Modal from 'web3modal'
-import { getUser } from '@/redux/apiCalls'
-import { useAppDispatch } from '@/hooks/hooks'
 
 const network = 'goerli'
 const infuraId = '95e1350b6b94480db9d2aa96eb1caac4'
@@ -25,16 +23,12 @@ const ConnectBtn = ({
 	authenticationStatus,
 	mounted,
 }) => {
-	const dispatch = useAppDispatch()
 	const ready = mounted && authenticationStatus !== 'loading'
 	const connected =
 		ready &&
 		account &&
 		chain &&
 		(!authenticationStatus || authenticationStatus === 'authenticated')
-	useEffect(() => {
-		getUser(dispatch, account)
-	}, [dispatch])
 
 	// eslint-disable-next-line @typescript-eslint/no-var-requires
 	const { ethers } = require('ethers')
@@ -46,6 +40,7 @@ const ConnectBtn = ({
 	const [success, setSuccess] = useState(false)
 	const [error, setError] = useState(false)
 	const [fullfield, setFullfield] = useState(false)
+	const [inject, setInject] = useState(false)
 
 	useEffect(() => {
 		// Создаем Web3Modal
@@ -64,6 +59,25 @@ const ConnectBtn = ({
 		})
 		setWeb3Modal(web3Modal)
 	}, [])
+
+	useEffect(() => {
+		if (typeof window !== 'undefined') {
+			const value = localStorage.getItem('wagmi.wallet') || ''
+			const v = localStorage.getItem('wagmi.metaMask.shimDisconnect') || ''
+			const va = localStorage.getItem('rk-recent') || ''
+			localStorage.setItem(
+				'WEB3_CONNECT_CACHED_PROVIDER',
+				JSON.stringify('injected')
+			)
+			if (value == '"metaMask"' || va == '["metaMask"]' || v == 'true') {
+				// setInject(true)
+			}
+		}
+
+		// if (inject == true) {
+		// console.log(inject)
+		// }
+	}, [inject])
 
 	const buyTokens = async () => {
 		try {

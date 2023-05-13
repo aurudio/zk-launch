@@ -18,8 +18,6 @@ import { mainnet, goerli, zkSyncTestnet, zkSync } from 'wagmi/chains'
 import { publicProvider } from 'wagmi/providers/public'
 import HeadMeta from '@/components/Head/Head'
 import merge from 'lodash.merge'
-import { Provider } from 'react-redux'
-import { store } from '@/redux/store'
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
 	[
@@ -78,9 +76,7 @@ export default function App({ Component, pageProps }: AppProps) {
 					appInfo={demoAppInfo}
 					chains={chains}
 				>
-					<Provider store={store}>
-						<Component {...pageProps} />
-					</Provider>
+					<Component {...pageProps} />
 				</RainbowKitProvider>
 			</WagmiConfig>
 		</div>
