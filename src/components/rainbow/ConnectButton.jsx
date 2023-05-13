@@ -35,25 +35,18 @@ const ConnectBtn = ({
 	useEffect(() => {
 		getUser(dispatch, account)
 	}, [dispatch])
+
 	// eslint-disable-next-line @typescript-eslint/no-var-requires
 	const { ethers } = require('ethers')
 
-	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const [web3Modal, setWeb3Modal] = useState(null)
-	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const [provider, setProvider] = useState(null)
-	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const [signer, setSigner] = useState(null)
-	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const [contract, setContract] = useState(null)
-	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const [success, setSuccess] = useState(false)
-	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const [error, setError] = useState(false)
-	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const [fullfield, setFullfield] = useState(false)
 
-	// eslint-disable-next-line react-hooks/rules-of-hooks
 	useEffect(() => {
 		// Создаем Web3Modal
 		const providerOptions = {
