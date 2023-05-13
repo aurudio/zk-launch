@@ -21,6 +21,16 @@ const MainSection = () => {
 							zkLaunch is the ultimate decentralized fundraising and marketing
 							platform for teams from all over the world
 						</p>
+						<p
+							className='text-[#1e68ff] underline cursor-pointer font-GR font-light'
+							onClick={() =>
+								window.open(
+									'https://zklaunch.medium.com/announcing-zkl-token-private-sale-1d0dfcaa8cf'
+								)
+							}
+						>
+							Information about presale
+						</p>
 						<button
 							onClick={() => push('/presale')}
 							className='py-[8.5px] pl-6 pr-4 bg-[#1E69FF] rounded-lg flex items-center gap-x-28 hover:btn-hover active:ring-4 active:ring-[#0055FF59] active:duration-200 duration-200 hover:duration-200 max-[640px]:justify-between max-[640px]:w-full'

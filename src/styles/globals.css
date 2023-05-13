@@ -107,4 +107,22 @@ progress::-moz-progress-bar {
 		box-shadow: 0 0 20px #6947f6;
 		transition: 0.3s;
 	}
+
+	.live-ind {
+		animation: 1.5s flashing linear infinite;
+	}
+}
+
+@keyframes flashing {
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
 }
