@@ -9,26 +9,26 @@ const MainSection = () => {
 	const [ZKL, setZKL] = useState('')
 	const [usd, setUsd] = useState(0)
 
-	function handleConvert(value: number) {
+	function handleConvert(value) {
 		const usd = value * 1808.91
 		const convert = usd.toFixed(10)
 
 		setUsd(+convert)
 	}
 
-	function convertZKLtoETH(zklAmount: any) {
+	function convertZKLtoETH(zklAmount) {
 		const ethRate = 0.0000282
 		const ethAmount = zklAmount * ethRate
 		return ethAmount
 	}
 
-	function convertETHtoZKL(ethAmount: any) {
+	function convertETHtoZKL(ethAmount) {
 		const zklRate = 35461.87
 		const zklAmount = ethAmount * zklRate
 		return zklAmount
 	}
 
-	function handleEthChange(event: any) {
+	function handleEthChange(event) {
 		const eth = parseFloat(event.target.value)
 		if (eth) {
 			const zkl = convertETHtoZKL(eth)
@@ -41,7 +41,7 @@ const MainSection = () => {
 		}
 	}
 
-	function handleZklChange(event: any) {
+	function handleZklChange(event) {
 		const zkl = parseFloat(event.target.value)
 		if (zkl) {
 			const eth = convertZKLtoETH(zkl)
@@ -212,7 +212,7 @@ const MainSection = () => {
 								</p>
 							</div>
 						</div>
-						<ConnectBtn />
+						<ConnectBtn eth={eth} zkl={ZKL} />
 					</div>
 				</div>
 			</div>
