@@ -125,10 +125,10 @@ const MainSection = () => {
 						</div>
 					</div>
 					<div className='flex flex-col gap-y-8 items-center '>
-						<div className='flex flex-col gap-y-4 max-[1150px]:w-full'>
+						<div className='flex flex-col-reverse gap-y-4 max-[1150px]:w-full '>
 							<div className='flex min-[1150px]:min-w-[492px] flex-col border border-[#0870FF] rounded-lg py-3 pl-4 pr-6'>
 								<div className='max-[1150px]:hidden flex justify-between flex-row'>
-									<p className='font-bold '>You Recieve</p>
+									<p className='font-bold '>You Pay</p>
 
 									<p className='font-bold'>
 										Balance:{' '}
