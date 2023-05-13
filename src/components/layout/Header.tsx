@@ -1,21 +1,21 @@
 import Navbar from './Navbar'
 import arrow from '../../../public/arrow-right.svg'
 import Image from 'next/image'
-import Marquee from 'react-fast-marquee'
+// import Marquee from 'react-fast-marquee'
 // import { useRouter } from 'next/router'
 
 const Header = () => {
-	const news = [
-		{ id: 1, title: 'NEW LISTING' },
-		{ id: 2, title: 'Pre-sale is now LIVE' },
-		{ id: 3, title: 'NEW LISTING' },
-		{ id: 4, title: 'Pre-sale is now LIVE' },
-		{ id: 5, title: 'NEW LISTING' },
-		{ id: 6, title: 'Pre-sale is now LIVE' },
-		{ id: 7, title: 'NEW LISTING' },
-		{ id: 8, title: 'Pre-sale is now LIVE' },
-		{ id: 9, title: 'NEW LISTING' },
-	]
+	// const news = [
+	// 	{ id: 1, title: 'NEW LISTING' },
+	// 	{ id: 2, title: 'Pre-sale is now LIVE' },
+	// 	{ id: 3, title: 'NEW LISTING' },
+	// 	{ id: 4, title: 'Pre-sale is now LIVE' },
+	// 	{ id: 5, title: 'NEW LISTING' },
+	// 	{ id: 6, title: 'Pre-sale is now LIVE' },
+	// 	{ id: 7, title: 'NEW LISTING' },
+	// 	{ id: 8, title: 'Pre-sale is now LIVE' },
+	// 	{ id: 9, title: 'NEW LISTING' },
+	// ]
 
 	// const { pathname } = useRouter()
 
@@ -35,7 +35,7 @@ const Header = () => {
 					</div>
 				</Marquee>
 			</div> */}
-			<div className='flex cursor-pointer justify-center py-[15px] bg-[#1E69FF] font-semibold text-xs sm:text-base max-[500px]:hidden'>
+			<div className='flex cursor-pointer justify-center py-[15px] bg-[#1E69FF] font-thing text-xs sm:text-base max-[500px]:hidden'>
 				<p
 					onClick={() =>
 						window.open(
@@ -44,10 +44,7 @@ const Header = () => {
 					}
 				>
 					💻 We are giving away 3 x MacBook Pro!{' '}
-					<span className='border-b-4 border-dotted border-black'>
-						{' '}
-						Enter to win here{' '}
-					</span>{' '}
+					<span className='border-b-4 border-dotted'> Enter to win here </span>{' '}
 					🚀
 				</p>
 				<Image src={arrow} alt='' />

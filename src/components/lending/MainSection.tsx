@@ -21,6 +21,16 @@ const MainSection = () => {
 							zkLaunch is the ultimate decentralized fundraising and marketing
 							platform for teams from all over the world
 						</p>
+						<p
+							className='text-[#1e68ff] underline cursor-pointer font-GR font-light'
+							onClick={() =>
+								window.open(
+									'https://zklaunch.medium.com/announcing-zkl-token-private-sale-1d0dfcaa8cf'
+								)
+							}
+						>
+							Information about presale
+						</p>
 						<button
 							onClick={() => push('/presale')}
 							className='py-[8.5px] pl-6 pr-4 bg-[#1E69FF] rounded-lg flex items-center gap-x-28 hover:btn-hover active:ring-4 active:ring-[#0055FF59] active:duration-200 duration-200 hover:duration-200 max-[640px]:justify-between max-[640px]:w-full'
@@ -78,7 +88,7 @@ const MainSection = () => {
 				<Image
 					src={donut50}
 					alt=''
-					className='absolute min-[980px]:top-[59rem] sm:top-[60rem] sm:-right-44 top-[70rem] -right-48 object-cover max-[580px]:-right-32 max-[580px]:top-[60rem] max-[56px]:top-[65rem] max-[550px]:top-[70rem] md:top-[68rem] lg:top-[68rem] z-[-1] md:right-0 lg:right-12 min-[684px]:top-[50rem] max-[639px]:top-[55rem] max-[440px]:top-[75rem]'
+					className='absolute min-[980px]:top-[50rem] sm:top-[60rem] sm:-right-44 -right-48 object-cover max-[580px]:-right-32 max-[580px]:top-[60rem] max-[56px]:top-[65rem] max-[550px]:top-[70rem] md:top-[60rem] lg:top-[60rem] z-[-1] md:right-0 lg:right-12 min-[684px]:top-[50rem] max-[639px]:top-[55rem] max-[440px]:top-[75rem]'
 				/>
 			</div>
 

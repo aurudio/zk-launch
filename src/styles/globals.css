@@ -79,4 +79,50 @@ progress::-moz-progress-bar {
 	.statistic-hr:nth-child(odd) {
 		@apply shadow-[2px_0_0_#0166FF];
 	}
+
+	.discord,
+	.twitter,
+	.github,
+	.medium {
+		transition: 0.3s;
+	}
+
+	.discord:hover {
+		border: 1px solid #6947f6;
+		box-shadow: 0 0 20px #6947f6;
+		transition: 0.3s;
+	}
+	.twitter:hover {
+		border: 1px solid #1da1f2;
+		box-shadow: 0 0 20px #1da1f2;
+		transition: 0.3s;
+	}
+	.medium:hover {
+		border: 1px solid #ffc017;
+		box-shadow: 0 0 20px #ffc017;
+		transition: 0.3s;
+	}
+	.github:hover {
+		border: 1px solid #6947f6;
+		box-shadow: 0 0 20px #6947f6;
+		transition: 0.3s;
+	}
+
+	.live-ind {
+		animation: 1.5s flashing linear infinite;
+	}
+}
+
+@keyframes flashing {
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
 }
