@@ -8,7 +8,6 @@ const HeadMeta = () => {
 	return (
 		<Head>
 			<link rel='icon' type='image/x-icon' href='/favicon.ico' />
-
 			{pathname === 'presale' ? (
 				<>
 					<title>Private Sale | zkSync Launchpad</title>

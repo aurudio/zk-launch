@@ -28,7 +28,9 @@
 		"**/*.ts",
 		"**/*.tsx",
 		".next/types/**/*.ts",
-		"index.d.ts"
+		"index.d.ts",
+		"src/components/presale-test/MainSection.jsx",
+		"src/components/rainbow/ConnectButton.jsx"
 	],
 	"exclude": ["node_modules"]
 }

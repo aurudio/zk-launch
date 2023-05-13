@@ -34,7 +34,6 @@ const ConnectBtn = ({ zkl, eth }) => {
 					account &&
 					chain &&
 					(!authenticationStatus || authenticationStatus === 'authenticated')
-				console.log(account)
 				// eslint-disable-next-line @typescript-eslint/no-var-requires
 				const { ethers } = require('ethers')
 
@@ -66,6 +65,12 @@ const ConnectBtn = ({ zkl, eth }) => {
 					setWeb3Modal(web3Modal)
 				}, [])
 
+				// eslint-disable-next-line react-hooks/rules-of-hooks
+				const [success, setSuccess] = useState(false)
+				// eslint-disable-next-line react-hooks/rules-of-hooks
+				const [error, setError] = useState(false)
+				// eslint-disable-next-line react-hooks/rules-of-hooks
+				const [fullfield, setFullfield] = useState(false)
 				const buyTokens = async () => {
 					try {
 						// Получаем подключение к провайдеру
@@ -84,10 +89,20 @@ const ConnectBtn = ({ zkl, eth }) => {
 						await tx.wait()
 
 						// Обновляем UI
-						alert('Токены куплены!')
+						setSuccess(true)
+						setFullfield(true)
+						setTimeout(() => {
+							setSuccess(false)
+							setFullfield(false)
+						}, 1000)
 					} catch (error) {
 						console.error(error)
-						alert('Ошибка покупки токенов!')
+						setFullfield(true)
+						setError(true)
+						setTimeout(() => {
+							setFullfield(false)
+							setError(false)
+						}, 1000)
 					}
 				}
 
@@ -129,9 +144,19 @@ const ConnectBtn = ({ zkl, eth }) => {
 									<button
 										onClick={buyTokens}
 										className='flex w-full justify-center relative bg-gradient-to-r from-[#0038FF] via-purple-500 to-pink-500 py-[16px] rounded-lg text-xl font-medium shadow-[0_0_20px_#0066FF] mb-2'
+										style={
+											success
+												? { background: 'green' }
+												: { background: '' } && error
+												? { background: 'red' }
+												: { background: '' }
+										}
 									>
 										<Image src={wallet} alt='wallet' className='mr-[8px]' />
-										Buy
+
+										{fullfield ? '' : 'Buy'}
+										{success ? 'Success' : ''}
+										{error ? 'Error' : ''}
 									</button>
 
 									<div
