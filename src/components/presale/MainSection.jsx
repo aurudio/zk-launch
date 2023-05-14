@@ -4,11 +4,13 @@ import React, { useState, useEffect } from 'react'
 import { statistic } from '../lending/TokenomicsSection'
 import ConnectBtn from '../rainbow/ConnectButton'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
+import { contractAddress } from '../rainbow/ConnectButton'
 
 const MainSection = () => {
 	const [eth, setEth] = useState(null)
 	const [ZKL, setZKL] = useState(null)
 	const [usd, setUsd] = useState(null)
+	const [blur, setBlur] = useState(true)
 
 	function handleConvert(value) {
 		const usd = value * 1808.91
@@ -18,20 +20,26 @@ const MainSection = () => {
 	}
 
 	function convertZKLtoETH(zklAmount) {
+		if (!zklAmount) {
+			setEth(null)
+		}
 		const ethRate = 0.000028
 		const ethAmount = zklAmount * ethRate
 		return ethAmount
 	}
 
 	function convertETHtoZKL(ethAmount) {
+		if (!ethAmount) {
+			setZKL(null)
+		}
 		const zklRate = 35461.87
 		const zklAmount = ethAmount * zklRate
-		return zklAmount
+		return Math.ceil(zklAmount)
 	}
 
 	function handleEthChange(event) {
 		const eth = parseFloat(event.target.value)
-		if (isNaN(eth)) {
+		if (isNaN(eth) || !eth) {
 			setEth(null)
 			setZKL(null)
 		} else {
@@ -43,7 +51,7 @@ const MainSection = () => {
 
 	function handleZklChange(event) {
 		const zkl = parseFloat(event.target.value)
-		if (isNaN(zkl)) {
+		if (isNaN(zkl) || !zkl) {
 			setEth(null)
 			setZKL(null)
 		} else {
@@ -52,9 +60,29 @@ const MainSection = () => {
 			setEth(eth)
 		}
 	}
+
+	// useEffect(() => {
+	// 	handleConvert(+eth)
+	// 	if (!eth) {
+	// 		setZKL(null)
+	// 	}
+	// 	if (!ZKL) {
+	// 		setEth(null)
+	// 	}
+	// }, [eth])
+
 	useEffect(() => {
-		handleConvert(+eth)
-	}, [eth])
+		if (!ZKL) {
+			setEth(null)
+			setZKL(null)
+		}
+		if (!eth) {
+			setEth(null)
+			setZKL(null)
+		}
+	}, [ZKL, eth])
+
+	const [balanceUI, setBalanceUI] = useState(0)
 
 	return (
 		<div className='mt-[120px] max-[678px]:mt-[50px] flex flex-col items-center mb-[10rem] max-[893px]:mb-[6rem]'>
@@ -128,6 +156,13 @@ const MainSection = () => {
 							<div className='flex min-[1150px]:min-w-[492px] flex-col border border-[#0870FF] rounded-lg py-3 pl-4 pr-6'>
 								<div className='max-[1150px]:hidden flex justify-between flex-row'>
 									<p className='font-bold '>You Pay</p>
+
+									{/* <p className='font-bold'>
+										Balance:{' '}
+										<span className='text-[#0870FF]'>
+											{user?.displayBalance}
+										</span>
+									</p> */}
 								</div>
 								<div>
 									<div className=' flex justify-between items-start'>
@@ -135,7 +170,7 @@ const MainSection = () => {
 											max={1000}
 											maxLength={100}
 											value={eth}
-											placeholder='0'
+											placeholder='0 ETH'
 											onChange={e => {
 												const regex = /^[0-9.]+$/
 												if (regex.test(e.target.value)) {
@@ -153,12 +188,12 @@ const MainSection = () => {
 											type='number'
 											className='w-[13.125rem] mb-[7px] pl-2 rounded-[0.25rem] py-[0.625rem] bg-transparent text-4xl font-bold placeholder:text-[#4C4C5A] text-[#4C4C5A]'
 										/>
-										<button
+										{/* <button
 											onClick={() => setEth('999999999')}
 											className='bg-[#0870FF] max-[1150px]:hidden font-medium mt-2 py-[8.5px] rounded-[0.25rem] px-3'
 										>
 											MAX
-										</button>
+										</button> */}
 									</div>
 									<p className='text-lg font-medium text-[#0870FF]'>$ {usd}</p>
 								</div>
@@ -182,7 +217,7 @@ const MainSection = () => {
 									<input
 										maxLength={10}
 										value={ZKL}
-										placeholder='0'
+										placeholder='0 ZKL'
 										onChange={e => {
 											const regex = /^[0-9.]+$/
 											if (regex.test(e.target.value)) {
@@ -226,6 +261,10 @@ const MainSection = () => {
 										openConnectModal={openConnectModal}
 										authenticationStatus={authenticationStatus}
 										mounted={mounted}
+										setEth={setEth}
+										setZKL={setZKL}
+										setBlur={setBlur}
+										setBalanceUI={setBalanceUI}
 									/>
 								)
 							}}
@@ -233,32 +272,36 @@ const MainSection = () => {
 					</div>
 				</div>
 			</div>
-			<div className='w-[80%] max-[439px]:w-[90%] border border-[#0066FF] rounded-2xl py-[60px] backdrop-blur-[10px] flex flex-col items-center relative max-w-[924px] max-[510px]:py-[42px]'>
+			<div
+				className={`w-[80%] ${
+					blur ? 'blur-[5px] select-none' : ''
+				} max-[439px]:w-[90%] border border-[#0066FF] rounded-2xl py-[60px] backdrop-blur-[10px] flex flex-col items-center relative max-w-[924px] max-[510px]:py-[42px]`}
+			>
 				<div className='flex flex-col w-full px-[118px] max-[900px]:px-[70px] max-[510px]:p-[20px]'>
 					<div className='flex w-full justify-between max-[850px]:justify-center'>
 						<div className='max-[850px]:hidden'></div>
 						<h3 className='font-bold text-[32px] mb-[37px] max-[600px]:text-[28px] ml-11 max-[850px]:ml-0 max-[510px]:mb-[21px]'>
-							<span className='text-[#0066FF] mr-2'>0</span>/ 1000 ETH
+							<span className='text-[#0066FF] mr-2'>{balanceUI}</span>/ 830 ETH
 						</h3>
 						<div className=' h-[30px]  flex items-center  justify-center gap-x-2 bg-[#FFFFFF1A] rounded-lg px-2 py-1 max-[850px]:hidden'>
 							<div className='w-[12px] h-[12px] rounded-full live-ind bg-[#14FF00] max-[539px]:w-[8px] max-[539px]:h-[8px]'></div>
 							<p className='max-[539px]:text-[10px]'>LIVE</p>
 						</div>
 					</div>
-					<progress className='w-full mb-3' max={1000} />
+					<progress className='w-full mb-3' value={balanceUI} max={830} />
 					<div className='flex justify-between w-full mb-20 max-[510px]:mb-6 max-[604px]:mb-8'>
 						<p className='text-[22px] max-[539px]:text-base ml-[5%] max-[850px]:text-[19px] max-[510px]:ml-0 max-[510px]:text-[18px]'>
 							Start
 						</p>
 						<div className='text-[22px] max-[539px]:text-base max-[850px]:text-[19px] max-[510px]:text-[20px] ml-[1.2rem] max-[900px]:ml-[1.4rem] max-[510px]:ml-[3rem]'>
 							<p className='text-[#0066FF] text-center text-[20px] font-semibold '>
-								500 ETH
+								415 ETH
 							</p>
 							<p className='text-[18px] '>Soft Cap</p>
 						</div>
 						<div className='text-[22px] max-[539px]:text-base max-[850px]:text-[19px] max-[510px]:text-[20px] text-center'>
 							<p className='text-[#0066FF] font-semibold text-center '>
-								1000 ETH
+								830 ETH
 							</p>
 							<p className=''>Hard Cap</p>
 						</div>

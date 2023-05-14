@@ -11,10 +11,10 @@ export const statistic = [
 
 const Tokenomics = () => {
 	const tokens = [
-		{ id: 1, title: 'DAO Treasury*', value: '30 000 000', color: '#C112FF' },
-		{ id: 2, title: 'Liquidity', value: '10 000 000', color: '#0055FF' },
-		{ id: 3, title: 'Community', value: '30 000 000', color: '#00FF59' },
-		{ id: 4, title: 'Teams', value: '10 000 000', color: '#FFA012' },
+		{ id: 1, title: 'DAO Treasury*', value: '50', color: '#C112FF' },
+		{ id: 2, title: 'Liquidity', value: '10', color: '#0055FF' },
+		{ id: 3, title: 'Community', value: '30', color: '#00FF59' },
+		{ id: 4, title: 'Teams', value: '10', color: '#FFA012' },
 	]
 
 	const { pathname } = useRouter()
@@ -64,7 +64,7 @@ const Tokenomics = () => {
 												className={`text-lg font-normal max-[1046px]:text-[14px] max-[841px]:text-[18px]`}
 												style={{ color: item.color }}
 											>
-												{item.value} ZKL
+												{item.value} 000 000 ZKL
 											</p>
 										</div>
 									</div>

@@ -14,15 +14,13 @@ import {
 	ledgerWallet,
 } from '@rainbow-me/rainbowkit/wallets'
 import { configureChains, createConfig, WagmiConfig } from 'wagmi'
-import { mainnet, goerli, zkSyncTestnet, zkSync } from 'wagmi/chains'
+import { goerli, zkSyncTestnet, zkSync } from 'wagmi/chains'
 import { publicProvider } from 'wagmi/providers/public'
 import HeadMeta from '@/components/Head/Head'
 import merge from 'lodash.merge'
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
 	[
-		mainnet,
-		zkSyncTestnet,
 		zkSync,
 		...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [goerli] : []),
 	],

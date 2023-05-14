@@ -64,7 +64,7 @@ const Navbar = () => {
 				</div>
 				<div className='relative flex justify-center w-full h-[90%]'>
 					<ul className='flex flex-col mb-6 w-full shadow-[inset0_-1px_0_#292A2B]'>
-						{pathname === '/presale'
+						{pathname == '/presale'
 							? navszkLaunch.map(item => (
 									<li
 										onClick={() => setVis(false)}

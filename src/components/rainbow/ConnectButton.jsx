@@ -4,15 +4,20 @@ import wallet from '@/wallet.svg'
 // import { ethers } from 'ethers'
 import WalletConnectProvider from '@walletconnect/web3-provider'
 import Web3Modal from 'web3modal'
+import { async } from 'q'
 
-const network = 'mainnet'
-const infuraId = '9d84b69dbe7a451ebd9a7d3fd01d65f4'
+const network = 'zkSyncMainnet'
+const infuraId = '95e1350b6b94480db9d2aa96eb1caac4'
 const contractAddress = '0xF1F70F838eF52CBCFf9E2f3f58E1397c6b72D4A8'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const abi = require('../../abi.json')
 
 const ConnectBtn = ({
+	setBalanceUI,
+	setBlur,
+	setZKL,
+	setEth,
 	zkl,
 	eth,
 	account,
@@ -29,12 +34,11 @@ const ConnectBtn = ({
 		account &&
 		chain &&
 		(!authenticationStatus || authenticationStatus === 'authenticated')
-
+	setBlur(!connected)
 	// eslint-disable-next-line @typescript-eslint/no-var-requires
 	const { ethers } = require('ethers')
 
 	const [web3Modal, setWeb3Modal] = useState(null)
-	const [provider, setProvider] = useState(null)
 	const [signer, setSigner] = useState(null)
 	const [contract, setContract] = useState(null)
 	const [success, setSuccess] = useState(false)
@@ -43,7 +47,6 @@ const ConnectBtn = ({
 	const [inject, setInject] = useState(false)
 
 	useEffect(() => {
-		// Создаем Web3Modal
 		const providerOptions = {
 			walletconnect: {
 				package: WalletConnectProvider,
@@ -79,24 +82,50 @@ const ConnectBtn = ({
 		// }
 	}, [inject])
 
+	useEffect(() => {
+		getBalances()
+	}, [web3Modal])
+
+	const getBalances = async () => {
+		try {
+			const instance = await web3Modal?.connect?.()
+			const provider = new ethers.providers.Web3Provider(instance)
+			console.log(provider)
+			provider
+				.getBalance(contractAddress)
+				.then(balance => {
+					setBalanceUI(ethers.utils.formatEther(balance).slice(0, 4))
+				})
+				.catch(error => {
+					console.error('Ошибка получения баланса:', error)
+				})
+			setBalanceUI(balance)
+		} catch (e) {
+			console.log(e)
+		}
+	}
+
 	const buyTokens = async () => {
 		try {
-			// Получаем подключение к провайдеру
 			const instance = await web3Modal?.connect?.()
 			const provider = new ethers.providers.Web3Provider(instance)
 			const signer = provider.getSigner()
 			const contract = new ethers.Contract(contractAddress, abi, signer)
 
-			// Выполняем транзакцию на покупку токенов
-			const value = ethers.utils.parseEther(Math.ceil(eth) + '') //eth
-			const amount = Math.ceil(zkl) + '' // zkl
+			const value = ethers.utils.parseEther(eth + '') //eth
+			const amount = zkl + '' // zkl
 			const overrides = {
 				value: value,
 			}
+			// const balance = await contract.balanceOf(contractAddress)
+			// const balance = await contract.methods.balance().call()
+
 			const tx = await contract.buyTokens(amount, overrides)
 			await tx.wait()
 
-			// Обновляем UI
+			setZKL(null)
+			setEth(null)
+
 			setSuccess(true)
 			setFullfield(true)
 			setTimeout(() => {
@@ -142,8 +171,14 @@ const ConnectBtn = ({
 
 					if (chain.unsupported) {
 						return (
-							<button onClick={openChainModal} type='button'>
-								Wrong network
+							<button
+								onClick={openChainModal}
+								type='button'
+								className=' text-2xl text-center w-full flex justify-center'
+							>
+								<p className='border-b-4 border-dotted'>
+									Wrong network. Switch to Era!
+								</p>
 							</button>
 						)
 					}
