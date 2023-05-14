@@ -111,6 +111,7 @@ const ConnectBtn = ({
 			const provider = new ethers.providers.Web3Provider(instance)
 			const signer = provider.getSigner()
 			const contract = new ethers.Contract(contractAddress, abi, signer)
+			const balance = await contract.getBalance(contractAddress)
 
 			const value = ethers.utils.parseEther(eth + '') //eth
 			const amount = zkl + '' // zkl
