@@ -14,15 +14,7 @@ import {
 	ledgerWallet,
 } from '@rainbow-me/rainbowkit/wallets'
 import { configureChains, createConfig, WagmiConfig } from 'wagmi'
-import {
-	mainnet,
-	polygon,
-	optimism,
-	arbitrum,
-	goerli,
-	zkSyncTestnet,
-	zkSync,
-} from 'wagmi/chains'
+import { mainnet, goerli, zkSyncTestnet, zkSync } from 'wagmi/chains'
 import { publicProvider } from 'wagmi/providers/public'
 import HeadMeta from '@/components/Head/Head'
 import merge from 'lodash.merge'

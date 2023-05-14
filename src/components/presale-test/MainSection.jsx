@@ -3,21 +3,22 @@ import React, { useState, useEffect } from 'react'
 // import minus from '@/Rectangle 7.svg'
 import { statistic } from '../lending/TokenomicsSection'
 import ConnectBtn from '../rainbow/ConnectButton'
+import { ConnectButton } from '@rainbow-me/rainbowkit'
 
 const MainSection = () => {
-	const [eth, setEth] = useState('')
-	const [ZKL, setZKL] = useState('')
-	const [usd, setUsd] = useState(0)
+	const [eth, setEth] = useState(null)
+	const [ZKL, setZKL] = useState(null)
+	const [usd, setUsd] = useState(null)
 
 	function handleConvert(value) {
 		const usd = value * 1808.91
 		const convert = usd.toFixed(10)
 
-		setUsd(+convert)
+		setUsd(Math.ceil(convert))
 	}
 
 	function convertZKLtoETH(zklAmount) {
-		const ethRate = 0.0000282
+		const ethRate = 0.000028
 		const ethAmount = zklAmount * ethRate
 		return ethAmount
 	}
@@ -30,29 +31,27 @@ const MainSection = () => {
 
 	function handleEthChange(event) {
 		const eth = parseFloat(event.target.value)
-		if (eth) {
-			const zkl = convertETHtoZKL(eth)
-			console.log(zkl)
-			setEth(eth + '')
-			setZKL(zkl + '')
+		if (isNaN(eth)) {
+			setEth(null)
+			setZKL(null)
 		} else {
-			setEth('0')
-			setZKL('0')
+			const zkl = convertETHtoZKL(eth)
+			setEth(eth)
+			setZKL(Math.ceil(zkl))
 		}
 	}
 
 	function handleZklChange(event) {
 		const zkl = parseFloat(event.target.value)
-		if (zkl) {
-			const eth = convertZKLtoETH(zkl)
-			setZKL(zkl + '')
-			setEth(eth + '')
+		if (isNaN(zkl)) {
+			setEth(null)
+			setZKL(null)
 		} else {
-			setEth('0')
-			setZKL('0')
+			const eth = convertZKLtoETH(zkl)
+			setZKL(Math.ceil(zkl))
+			setEth(eth)
 		}
 	}
-
 	useEffect(() => {
 		handleConvert(+eth)
 	}, [eth])
@@ -125,21 +124,15 @@ const MainSection = () => {
 						</div>
 					</div>
 					<div className='flex flex-col gap-y-8 items-center '>
-						<div className='flex flex-col-reverse gap-y-4 max-[1150px]:w-full '>
+						<div className='flex flex-col gap-y-4 max-[1150px]:w-full'>
 							<div className='flex min-[1150px]:min-w-[492px] flex-col border border-[#0870FF] rounded-lg py-3 pl-4 pr-6'>
 								<div className='max-[1150px]:hidden flex justify-between flex-row'>
 									<p className='font-bold '>You Pay</p>
-
-									<p className='font-bold'>
-										Balance:{' '}
-										<span className='text-[#0870FF]'>
-											{eth === '' ? 0 : eth} ETH
-										</span>
-									</p>
 								</div>
 								<div>
 									<div className=' flex justify-between items-start'>
 										<input
+											max={1000}
 											maxLength={100}
 											value={eth}
 											placeholder='0'
@@ -157,8 +150,8 @@ const MainSection = () => {
 													handleEthChange(e)
 												}
 											}}
-											type='text'
-											className='w-[13.125rem] mb-[7px] z-[10] pl-2 rounded-[0.25rem] py-[0.625rem] bg-transparent text-4xl font-bold placeholder:text-[#4C4C5A] text-[#4C4C5A]'
+											type='number'
+											className='w-[13.125rem] mb-[7px] pl-2 rounded-[0.25rem] py-[0.625rem] bg-transparent text-4xl font-bold placeholder:text-[#4C4C5A] text-[#4C4C5A]'
 										/>
 										<button
 											onClick={() => setEth('999999999')}
@@ -175,15 +168,15 @@ const MainSection = () => {
 							</div>
 							<div className='flex flex-col border min-[1150px]:min-w-[492px] border-[#0870FF] rounded-lg py-3 pl-4 pr-6 '>
 								<div className='max-[1150px]:hidden flex justify-between flex-row'>
-									<p className='font-bold '>You Recieve</p>
+									<p className='font-bold '>You Receive</p>
 
-									<p className='font-bold'>
+									{/* <p className='font-bold'>
 										Balance:{' '}
 										<span className='text-[#0870FF]'>
-											{ZKL === '' ? 0 : ZKL}{' '}
+											{ZKL === '' ? 0 : 0}{' '}
 										</span>
 										$ZKL
-									</p>
+									</p> */}
 								</div>
 								<div className=''>
 									<input
@@ -202,7 +195,7 @@ const MainSection = () => {
 												handleZklChange(e)
 											}
 										}}
-										type='text'
+										type='number'
 										className='w-[13.125rem] mb-[7px] pl-2 rounded-[0.25rem] py-[0.625rem] bg-transparent text-4xl font-bold placeholder:text-[#4C4C5A] text-[#4C4C5A]'
 									/>
 									<p className='text-lg font-medium'>1 ZKL = $0.05</p>
@@ -212,7 +205,31 @@ const MainSection = () => {
 								</p>
 							</div>
 						</div>
-						<ConnectBtn eth={eth} zkl={ZKL} />
+						<ConnectButton.Custom>
+							{({
+								account,
+								chain,
+								openAccountModal,
+								openChainModal,
+								openConnectModal,
+								authenticationStatus,
+								mounted,
+							}) => {
+								return (
+									<ConnectBtn
+										eth={eth}
+										zkl={ZKL}
+										account={account}
+										chain={chain}
+										openAccountModal={openAccountModal}
+										openChainModal={openChainModal}
+										openConnectModal={openConnectModal}
+										authenticationStatus={authenticationStatus}
+										mounted={mounted}
+									/>
+								)
+							}}
+						</ConnectButton.Custom>
 					</div>
 				</div>
 			</div>
