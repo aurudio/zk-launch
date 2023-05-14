@@ -81,11 +81,8 @@ const MainSection = () => {
 			setZKL(null)
 		}
 	}, [ZKL, eth])
-<<<<<<< HEAD
 
 	const [balanceUI, setBalanceUI] = useState(0)
-=======
->>>>>>> 8b6a430 (fixed bugs)
 
 	return (
 		<div className='mt-[120px] max-[678px]:mt-[50px] flex flex-col items-center mb-[10rem] max-[893px]:mb-[6rem]'>
@@ -284,11 +281,7 @@ const MainSection = () => {
 					<div className='flex w-full justify-between max-[850px]:justify-center'>
 						<div className='max-[850px]:hidden'></div>
 						<h3 className='font-bold text-[32px] mb-[37px] max-[600px]:text-[28px] ml-11 max-[850px]:ml-0 max-[510px]:mb-[21px]'>
-<<<<<<< HEAD
 							<span className='text-[#0066FF] mr-2'>{balanceUI}</span>/ 830 ETH
-=======
-							<span className='text-[#0066FF] mr-2'>0</span>/ 830 ETH
->>>>>>> 8b6a430 (fixed bugs)
 						</h3>
 						<div className=' h-[30px]  flex items-center  justify-center gap-x-2 bg-[#FFFFFF1A] rounded-lg px-2 py-1 max-[850px]:hidden'>
 							<div className='w-[12px] h-[12px] rounded-full live-ind bg-[#14FF00] max-[539px]:w-[8px] max-[539px]:h-[8px]'></div>
