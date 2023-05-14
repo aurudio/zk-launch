@@ -43,7 +43,7 @@ const GlobalCommunity = () => {
 	return (
 		<section
 			id='Community'
-			className='flex flex-col items-start max-w-7xl mx-auto my-[8.875rem] px-5 max-[850px]:mt-[0rem] max-[677px]:mb-[4rem]'
+			className='z-[1] flex flex-col items-start max-w-7xl mx-auto my-[8.875rem] px-5 max-[850px]:mt-[0rem] max-[677px]:mb-[4rem]'
 		>
 			<h2 className='max-[640px]:text-[2rem] text-4xl lg:text-5xl font-semibold mb-6'>
 				Global Community
@@ -53,7 +53,11 @@ const GlobalCommunity = () => {
 				just{' '}
 				<span
 					className='text-blue-600 shadow-[0_1px_0_blue] cursor-pointer'
-					onClick={() => window.open('https://punkszk.com/')}
+					onClick={() =>
+						window.open(
+							'http://mintsquare.io/collection/zksync/0xcb5d99e8b5d626f882e1fb4067d37759d67595a6'
+						)
+					}
 				>
 					buy zkPunks
 				</span>

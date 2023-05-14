@@ -26,6 +26,12 @@ const Footer = () => {
 		{ id: 4, title: 'Community' },
 	]
 
+	const contract = {
+		icon: '',
+		title: 'Contract',
+		link: 'https://explorer.zksync.io/address/0xF1F70F838eF52CBCFf9E2f3f58E1397c6b72D4A8',
+	}
+
 	const { pathname } = useRouter()
 
 	return (
@@ -57,6 +63,12 @@ const Footer = () => {
 								</li>
 								// eslint-disable-next-line no-mixed-spaces-and-tabs
 						  ))}
+					<li
+						className='text-[#686A6D] p-5 text-lg font-normal cursor-pointer'
+						onClick={() => window.open(contract.link)}
+					>
+						{contract.title}
+					</li>
 				</ul>
 			</div>
 			<div className='flex items-center sm:justify-between sm:flex-row flex-col-reverse gap-y-12 max-w-7xl w-full px-5'>

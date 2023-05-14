@@ -97,9 +97,9 @@ const ConnectBtn = ({
 			const parser = new DOMParser()
 			const doc = parser.parseFromString(xhr.responseText, 'text/html')
 			const balance = doc
-				.querySelector("dd[data-test='address_balance']")
-				.textContent.trim()
-			setBalanceUI(balance.slice(0, 4)), 'ETH'
+				?.querySelector("dd[data-test='address_balance']")
+				?.textContent?.trim()
+			setBalanceUI(balance?.slice(0, 4)), 'ETH'
 			console.log(balance)
 		}
 		xhr.send()
@@ -160,27 +160,57 @@ const ConnectBtn = ({
 				{(() => {
 					if (!connected) {
 						return (
-							<button
-								onClick={openConnectModal}
-								className={`flex w-full justify-center relative bg-gradient-to-r from-[#0038FF] via-purple-500 to-pink-500 py-[16px] rounded-lg text-xl font-medium shadow-[0_0_20px_#0066FF] z-[1] mb-2 active:translate-y-[1px] hover:-translate-y-[1px] hover:duration-300 duration-300  `}
-							>
-								<Image src={wallet} alt='wallet' className='mr-[8px]' />
-								Connect Wallet
-							</button>
+							<div className='flex w-full items-center flex-col'>
+								<button
+									onClick={openConnectModal}
+									className={`flex w-full justify-center relative bg-gradient-to-r from-[#0038FF] via-purple-500 to-pink-500 py-[16px] rounded-lg text-xl font-medium shadow-[0_0_20px_#0066FF] z-[1] mb-2 active:translate-y-[1px] hover:-translate-y-[1px] hover:duration-300 duration-300  `}
+								>
+									<Image src={wallet} alt='wallet' className='mr-[8px]' />
+									Connect Wallet
+								</button>
+								<p className='text-[#0038FF] text-xl cursor-pointer font-semibold inline-block mx-auto mt-7'>
+									Contract:
+									<span
+										className='text-white ml-1 underline'
+										onClick={() =>
+											window.open(
+												'https://explorer.zksync.io/address/0xF1F70F838eF52CBCFf9E2f3f58E1397c6b72D4A8'
+											)
+										}
+									>
+										0xF1F7...D4A8
+									</span>
+								</p>
+							</div>
 						)
 					}
 
 					if (chain.unsupported) {
 						return (
-							<button
-								onClick={openChainModal}
-								type='button'
-								className=' text-2xl text-center w-full flex justify-center'
-							>
-								<p className='border-b-4 border-dotted'>
-									Wrong network. Switch to Era!
+							<>
+								<button
+									onClick={openChainModal}
+									type='button'
+									className=' text-2xl text-center w-full flex justify-center'
+								>
+									<p className='border-b-4 border-dotted'>
+										Wrong network. Switch to Era!
+									</p>
+								</button>
+								<p className='text-[#0038FF] text-xl text-end cursor-pointer font-semibold inline-block mx-auto mt-4'>
+									Contract:
+									<span
+										className='text-white ml-1 underline'
+										onClick={() =>
+											window.open(
+												'https://explorer.zksync.io/address/0xF1F70F838eF52CBCFf9E2f3f58E1397c6b72D4A8'
+											)
+										}
+									>
+										0xF1F7...D4A8
+									</span>
 								</p>
-							</button>
+							</>
 						)
 					}
 
@@ -263,6 +293,19 @@ const ConnectBtn = ({
 									</p>
 								</button>
 							</div>
+							<p className='text-[#0038FF] text-xl text-end cursor-pointer font-semibold inline-block mx-auto mt-2'>
+								Contract:
+								<span
+									className='text-white ml-1 underline'
+									onClick={() =>
+										window.open(
+											'https://explorer.zksync.io/address/0xF1F70F838eF52CBCFf9E2f3f58E1397c6b72D4A8'
+										)
+									}
+								>
+									0xF1F7...D4A8
+								</span>
+							</p>
 						</div>
 					)
 				})()}

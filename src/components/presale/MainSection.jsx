@@ -145,12 +145,12 @@ const MainSection = () => {
 						for new exciting projects.
 					</p>
 				</div>
-				<div className='flex relative flex-col min-[1150px]:py-8 max-[1150px]:w-full min-[1150px]:px-6 min-[1150px]:border border-[#0870FF] rounded-xl bg-black'>
-					<div
+				<div className='flex relative flex-col min-[1150px]:py-8 max-[1150px]:bg-transparent max-[1150px]:w-full min-[1150px]:px-6 min-[1150px]:border border-[#0870FF] rounded-xl bg-black'>
+					{/* <div
 						className={`absolute z-[1] ${
 							!blur ? 'hidden' : ''
 						} top-0 left-0 backdrop-blur-[4px] rounded-xl h-full w-full`}
-					></div>
+					></div> */}
 					<div className='flex justify-between mb-6 max-[1150px]:hidden'>
 						<h4 className='font-bold text-[1.75rem]'>Buy $ZKL</h4>
 						<div className=' h-[30px]  flex items-center  justify-center gap-x-2 bg-[#FFFFFF1A] rounded-lg px-2 py-1 max-[850px]:hidden'>
