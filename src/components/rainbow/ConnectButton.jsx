@@ -34,7 +34,13 @@ const ConnectBtn = ({
 		account &&
 		chain &&
 		(!authenticationStatus || authenticationStatus === 'authenticated')
-	setBlur(!connected)
+	useEffect(() => {
+		if (connected == true) {
+			setBlur(false)
+		} else {
+			setBlur(true)
+		}
+	}, [connected])
 	// eslint-disable-next-line @typescript-eslint/no-var-requires
 	const { ethers } = require('ethers')
 
@@ -86,23 +92,17 @@ const ConnectBtn = ({
 		getBalances()
 	}, [web3Modal])
 
+	const Web3 = require('web3')
+	const web3 = new Web3(window.ethereum)
+
 	const getBalances = async () => {
-		try {
-			const instance = await web3Modal?.connect?.()
-			const provider = new ethers.providers.Web3Provider(instance)
-			console.log(provider)
-			provider
-				.getBalance(contractAddress)
-				.then(balance => {
-					setBalanceUI(ethers.utils.formatEther(balance).slice(0, 4))
-				})
-				.catch(error => {
-					console.error('Ошибка получения баланса:', error)
-				})
-			setBalanceUI(balance)
-		} catch (e) {
-			console.log(e)
-		}
+		web3.eth.getBalance(contractAddress, function (error, result) {
+			if (!error) {
+				setBalanceUI(web3.utils.fromWei(result).slice(0, 4)), 'ETH'
+			} else {
+				console.error('Ошибка получения баланса контракта:', error)
+			}
+		})
 	}
 
 	const buyTokens = async () => {
@@ -162,7 +162,7 @@ const ConnectBtn = ({
 						return (
 							<button
 								onClick={openConnectModal}
-								className='flex w-full justify-center relative bg-gradient-to-r from-[#0038FF] via-purple-500 to-pink-500 py-[16px] rounded-lg text-xl font-medium shadow-[0_0_20px_#0066FF] mb-2'
+								className={`flex w-full justify-center relative bg-gradient-to-r from-[#0038FF] via-purple-500 to-pink-500 py-[16px] rounded-lg text-xl font-medium shadow-[0_0_20px_#0066FF] z-[1] mb-2 active:translate-y-[1px] hover:-translate-y-[1px] hover:duration-300 duration-300  `}
 							>
 								<Image src={wallet} alt='wallet' className='mr-[8px]' />
 								Connect Wallet
@@ -188,12 +188,12 @@ const ConnectBtn = ({
 						<div className='flex flex-col gap-y-4'>
 							<button
 								onClick={buyTokens}
-								className='flex w-full justify-center relative bg-gradient-to-r from-[#0038FF] via-purple-500 to-pink-500 py-[16px] rounded-lg text-xl font-medium shadow-[0_0_20px_#0066FF] mb-2 active:translate-y-[1px] hover:-translate-y-[1px] hover:duration-300 duration-300'
+								className='flex w-full justify-center relative bg-gradient-to-r from-[#0038FF] via-purple-500 to-pink-500 py-[16px] rounded-lg text-xl font-medium shadow-[0_0_20px_#0066FF] -z-[0] mb-2 active:translate-y-[1px] hover:-translate-y-[1px] hover:duration-300 duration-300'
 								style={
 									success
-										? { background: 'green' }
+										? { background: 'green', boxShadow: '0 0 20px green' }
 										: { background: '' } && error
-										? { background: 'red' }
+										? { background: 'red', boxShadow: '0 0 20px red' }
 										: { background: '' }
 								}
 							>
@@ -231,6 +231,15 @@ const ConnectBtn = ({
 											)}
 										</div>
 									)}
+									{chain.name == 'zkSync Era' ? (
+										<Image
+											src={'https://lite.zksync.io/images/logo-no-letters.svg'}
+											className='mr-2'
+											alt=''
+											width={30}
+											height={30}
+										/>
+									) : null}
 									{chain.name}
 								</button>
 
@@ -249,7 +258,7 @@ const ConnectBtn = ({
 										/>
 									) : null}
 									{account.displayBalance}
-									<p className='px-3 py-0.5 bg-slate-50 rounded-md ml-1 shadow-[inset_0_8px_15px_-10px_rgb(180,0,125)]'>
+									<p className='px-3 py-0.5 bg-slate-50 rounded-md ml-1 shadow-[inset_0_8px_15px_-10px_rgb(180,0,295)]'>
 										{account.displayName}
 									</p>
 								</button>

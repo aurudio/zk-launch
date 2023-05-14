@@ -84,6 +84,8 @@ const MainSection = () => {
 
 	const [balanceUI, setBalanceUI] = useState(0)
 
+	console.log(blur)
+
 	return (
 		<div className='mt-[120px] max-[678px]:mt-[50px] flex flex-col items-center mb-[10rem] max-[893px]:mb-[6rem]'>
 			<div>
@@ -143,11 +145,16 @@ const MainSection = () => {
 						for new exciting projects.
 					</p>
 				</div>
-				<div className='flex flex-col min-[1150px]:py-8 max-[1150px]:w-full min-[1150px]:px-6 min-[1150px]:border border-[#0870FF] rounded-xl bg-black'>
+				<div className='flex relative flex-col min-[1150px]:py-8 max-[1150px]:w-full min-[1150px]:px-6 min-[1150px]:border border-[#0870FF] rounded-xl bg-black'>
+					<div
+						className={`absolute z-[1] ${
+							!blur ? 'hidden' : ''
+						} top-0 left-0 backdrop-blur-[4px] rounded-xl h-full w-full`}
+					></div>
 					<div className='flex justify-between mb-6 max-[1150px]:hidden'>
 						<h4 className='font-bold text-[1.75rem]'>Buy $ZKL</h4>
 						<div className=' h-[30px]  flex items-center  justify-center gap-x-2 bg-[#FFFFFF1A] rounded-lg px-2 py-1 max-[850px]:hidden'>
-							<div className='w-[12px] h-[12px] rounded-full live-ind bg-[#14FF00] max-[539px]:w-[8px] max-[539px]:h-[8px]'></div>
+							<div className='w-[12px] h-[12px] rounded-full z-0 live-ind bg-[#14FF00] max-[539px]:w-[8px] max-[539px]:h-[8px]'></div>
 							<p className='max-[539px]:text-[10px]'>LIVE</p>
 						</div>
 					</div>
@@ -195,7 +202,9 @@ const MainSection = () => {
 											MAX
 										</button> */}
 									</div>
-									<p className='text-lg font-medium text-[#0870FF]'>$ {usd}</p>
+									<p className='text-lg font-medium text-[#0870FF]'>
+										$ {usd === null ? 0 : usd}
+									</p>
 								</div>
 								{/* <p className='min-[1150px]:hidden text-[#0870FF] font-medium'>
 									{ZKL} ZKL
@@ -273,18 +282,16 @@ const MainSection = () => {
 				</div>
 			</div>
 			<div
-				className={`w-[80%] ${
-					blur ? 'blur-[5px] select-none' : ''
-				} max-[439px]:w-[90%] border border-[#0066FF] rounded-2xl py-[60px] backdrop-blur-[10px] flex flex-col items-center relative max-w-[924px] max-[510px]:py-[42px]`}
+				className={`w-[80%] max-[439px]:w-[90%] border border-[#0066FF] rounded-2xl py-[60px] backdrop-blur-[10px] flex flex-col items-center relative max-w-[924px] max-[510px]:py-[42px]`}
 			>
 				<div className='flex flex-col w-full px-[118px] max-[900px]:px-[70px] max-[510px]:p-[20px]'>
 					<div className='flex w-full justify-between max-[850px]:justify-center'>
 						<div className='max-[850px]:hidden'></div>
 						<h3 className='font-bold text-[32px] mb-[37px] max-[600px]:text-[28px] ml-11 max-[850px]:ml-0 max-[510px]:mb-[21px]'>
-							<span className='text-[#0066FF] mr-2'>{balanceUI}</span>/ 830 ETH
+							<span className='text-[#0066FF] mr-2'>{balanceUI}</span>/ 415 ETH
 						</h3>
 						<div className=' h-[30px]  flex items-center  justify-center gap-x-2 bg-[#FFFFFF1A] rounded-lg px-2 py-1 max-[850px]:hidden'>
-							<div className='w-[12px] h-[12px] rounded-full live-ind bg-[#14FF00] max-[539px]:w-[8px] max-[539px]:h-[8px]'></div>
+							<div className='w-[12px] h-[12px] rounded-full z-0 live-ind bg-[#14FF00] max-[539px]:w-[8px] max-[539px]:h-[8px]'></div>
 							<p className='max-[539px]:text-[10px]'>LIVE</p>
 						</div>
 					</div>

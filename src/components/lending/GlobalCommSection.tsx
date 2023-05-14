@@ -52,7 +52,7 @@ const GlobalCommunity = () => {
 				Learn more about zkLaunch, talk to the team, other community members, or
 				just{' '}
 				<span
-					className='text-blue-600 shadow-[0_1px_0_blue]'
+					className='text-blue-600 shadow-[0_1px_0_blue] cursor-pointer'
 					onClick={() => window.open('https://punkszk.com/')}
 				>
 					buy zkPunks
