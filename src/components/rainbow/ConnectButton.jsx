@@ -99,7 +99,6 @@ const ConnectBtn = ({
 				.catch(error => {
 					console.error('Ошибка получения баланса:', error)
 				})
-			setBalanceUI(balance)
 		} catch (e) {
 			console.log(e)
 		}
