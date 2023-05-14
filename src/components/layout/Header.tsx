@@ -1,40 +1,51 @@
-import Navbar from './Navbar'
 import arrow from '../../../public/arrow-right.svg'
 import Image from 'next/image'
-// import Marquee from 'react-fast-marquee'
-// import { useRouter } from 'next/router'
+import Marquee from 'react-fast-marquee'
+import { useRouter } from 'next/router'
+import dynamic from 'next/dynamic'
+
+const DynamicSidebarWithNoSSR = dynamic(() => import('./Navbar'), {
+	ssr: false,
+})
 
 const Header = () => {
-	// const news = [
-	// 	{ id: 1, title: 'NEW LISTING' },
-	// 	{ id: 2, title: 'Pre-sale is now LIVE' },
-	// 	{ id: 3, title: 'NEW LISTING' },
-	// 	{ id: 4, title: 'Pre-sale is now LIVE' },
-	// 	{ id: 5, title: 'NEW LISTING' },
-	// 	{ id: 6, title: 'Pre-sale is now LIVE' },
-	// 	{ id: 7, title: 'NEW LISTING' },
-	// 	{ id: 8, title: 'Pre-sale is now LIVE' },
-	// 	{ id: 9, title: 'NEW LISTING' },
-	// ]
+	const news = [
+		{ id: 1, title: 'ZKL Private Sale is Live!' },
+		{ id: 2, title: 'ZKL Private Sale is Live!' },
+		{ id: 3, title: 'ZKL Private Sale is Live!' },
+		{ id: 4, title: 'ZKL Private Sale is Live!' },
+		{ id: 5, title: 'ZKL Private Sale is Live!' },
+		{ id: 6, title: 'ZKL Private Sale is Live!' },
+		{ id: 7, title: 'ZKL Private Sale is Live!' },
+		{ id: 8, title: 'ZKL Private Sale is Live!' },
+		{ id: 9, title: 'ZKL Private Sale is Live!' },
+		// { id: 2, title: 'Presale is now LIVE' },
+		// { id: 3, title: 'NEW LISTING' },
+		// { id: 4, title: 'Presale is now LIVE' },
+		// { id: 5, title: 'NEW LISTING' },
+		// { id: 6, title: 'Presale is now LIVE' },
+		// { id: 7, title: 'NEW LISTING' },
+		// { id: 8, title: 'Presale is now LIVE' },
+		// { id: 9, title: 'NEW LISTING' },
+	]
 
-	// const { pathname } = useRouter()
+	const { pathname } = useRouter()
 
 	return (
 		<header className='flex flex-col'>
-			{/* <div
-				className='overflow-hidden bg-gradient-to-r max-[640px]:hidden from-[#FF8A00] to-[#D449F7] py-3'
-				// className={`${
-				// 	pathname === '/' ? 'block' : 'hidden'
-				// } overflow-hidden bg-gradient-to-r max-[640px]:hidden from-[#FF8A00] to-[#D449F7] py-3`}
+			<div
+				className={`${
+					pathname === '/' ? '' : ''
+				} overflow-hidden bg-gradient-to-r max-[640px]:hidde from-[#FF8A00] to-[#D449F7] py-3`}
 			>
-				<Marquee direction='left' speed={50}>
+				<Marquee direction='left' className='flex gap-16' speed={50}>
 					<div className='flex gap-16'>
 						{news.map(item => (
 							<p key={item.id}>{item.title}</p>
 						))}
 					</div>
 				</Marquee>
-			</div> */}
+			</div>
 			<div className='flex cursor-pointer justify-center py-[15px] bg-[#1E69FF] font-thing text-xs sm:text-base max-[500px]:hidden'>
 				<p
 					onClick={() =>
@@ -49,7 +60,7 @@ const Header = () => {
 				</p>
 				<Image src={arrow} alt='' />
 			</div>
-			<Navbar />
+			<DynamicSidebarWithNoSSR />
 		</header>
 	)
 }

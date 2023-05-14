@@ -35,7 +35,8 @@ const MainSection = () => {
 							onClick={() => push('/presale')}
 							className='py-[8.5px] pl-6 pr-4 bg-[#1E69FF] rounded-lg flex items-center gap-x-28 hover:btn-hover active:ring-4 active:ring-[#0055FF59] active:duration-200 duration-200 hover:duration-200 max-[640px]:justify-between max-[640px]:w-full'
 						>
-							<p className='text-xl'>Private Sale</p>
+							<p className='text-xl'>ZKL Presale</p>
+							{/* <p className='text-xl'>Private Sale</p> */}
 							<Image src={arrow} alt='' />
 						</button>
 					</div>

@@ -9,6 +9,7 @@ const MainSection = () => {
 	const [eth, setEth] = useState('')
 	const [ZKL, setZKL] = useState('')
 	const [usd, setUsd] = useState(0)
+	const [blur, setBlur] = useState(true)
 
 	function handleConvert(value) {
 		const usd = value * 1808.91
@@ -26,31 +27,30 @@ const MainSection = () => {
 	function convertETHtoZKL(ethAmount) {
 		const zklRate = 35461.87
 		const zklAmount = ethAmount * zklRate
-		return zklAmount
+		return Math.ceil(zklAmount)
 	}
 
 	function handleEthChange(event) {
-		const eth = parseFloat(event.target.value)
+		const eth = event.target.value
 		if (eth) {
 			const zkl = convertETHtoZKL(eth)
-			console.log(zkl)
 			setEth(eth + '')
 			setZKL(zkl + '')
 		} else {
-			setEth('0')
-			setZKL('0')
+			setEth('')
+			setZKL('')
 		}
 	}
 
 	function handleZklChange(event) {
-		const zkl = parseFloat(event.target.value)
+		const zkl = event.target.value
 		if (zkl) {
 			const eth = convertZKLtoETH(zkl)
 			setZKL(zkl + '')
-			setEth(eth + '')
+			setEth(eth.toFixed(5) + '')
 		} else {
-			setEth('0')
-			setZKL('0')
+			setEth('')
+			setZKL('')
 		}
 	}
 
@@ -126,32 +126,37 @@ const MainSection = () => {
 						</div>
 					</div>
 					<div className='flex flex-col gap-y-8 items-center '>
-						<div className='flex flex-col-reverse gap-y-4 max-[1150px]:w-full'>
+						<div className='flex flex-col gap-y-4 max-[1150px]:w-full'>
 							<div className='flex min-[1150px]:min-w-[492px] flex-col border border-[#0870FF] rounded-lg py-3 pl-4 pr-6'>
 								<div className='max-[1150px]:hidden flex justify-between flex-row'>
-									<p className='font-bold '>You Pay</p>
+									<p className='font-bold '>You Invest</p>
 
-									<p className='font-bold'>
+									{/* <p className='font-bold'>
 										Balance:{' '}
 										<span className='text-[#0870FF]'>
-											{/* {user?.displayBalance} */}
+											{eth === '' ? 0 : 0} ETH
 										</span>
-									</p>
+									</p> */}
 								</div>
 								<div>
 									<div className=' flex justify-between items-start'>
 										<input
-											max={1000}
-											maxLength={100}
 											value={eth}
-											placeholder='0'
+											maxLength={10}
+											placeholder='0 ETH'
 											onChange={e => {
 												const regex = /^[0-9.]+$/
 												if (regex.test(e.target.value)) {
-													handleConvert(+e.target.value)
-													// setEth(e.target.value)
-													handleEthChange(e)
 												}
+
+												if (e.target.value >= 0.000028) {
+													handleConvert(e.target.value)
+													handleEthChange(e)
+												} else {
+													return
+												}
+
+												// setEth(e.target.value)
 
 												if (e.target.value === '') {
 													// setEth(e.target.value)
@@ -159,7 +164,7 @@ const MainSection = () => {
 													handleEthChange(e)
 												}
 											}}
-											type='text'
+											type='number'
 											className='w-[13.125rem] mb-[7px] pl-2 rounded-[0.25rem] py-[0.625rem] bg-transparent text-4xl font-bold placeholder:text-[#4C4C5A] text-[#4C4C5A]'
 										/>
 										<button
@@ -179,19 +184,18 @@ const MainSection = () => {
 								<div className='max-[1150px]:hidden flex justify-between flex-row'>
 									<p className='font-bold '>You Recieve</p>
 
-									<p className='font-bold'>
+									{/* <p className='font-bold'>
 										Balance:{' '}
 										<span className='text-[#0870FF]'>
 											{ZKL === '' ? 0 : 0}{' '}
 										</span>
 										$ZKL
-									</p>
+									</p> */}
 								</div>
 								<div className=''>
 									<input
-										maxLength={10}
 										value={ZKL}
-										placeholder='0'
+										placeholder='0 ZKL'
 										onChange={e => {
 											const regex = /^[0-9.]+$/
 											if (regex.test(e.target.value)) {
@@ -204,7 +208,7 @@ const MainSection = () => {
 												handleZklChange(e)
 											}
 										}}
-										type='text'
+										type='number'
 										className='w-[13.125rem] mb-[7px] pl-2 rounded-[0.25rem] py-[0.625rem] bg-transparent text-4xl font-bold placeholder:text-[#4C4C5A] text-[#4C4C5A]'
 									/>
 									<p className='text-lg font-medium'>1 ZKL = $0.05</p>
@@ -235,6 +239,8 @@ const MainSection = () => {
 										openConnectModal={openConnectModal}
 										authenticationStatus={authenticationStatus}
 										mounted={mounted}
+										blur={blur}
+										setBlur={setBlur}
 									/>
 								)
 							}}
@@ -242,7 +248,11 @@ const MainSection = () => {
 					</div>
 				</div>
 			</div>
-			<div className='w-[80%] max-[439px]:w-[90%] border border-[#0066FF] rounded-2xl py-[60px] backdrop-blur-[10px] flex flex-col items-center relative max-w-[924px] max-[510px]:py-[42px]'>
+			<div
+				className={`w-[80%] ${
+					blur ? 'blur-[5px] select-none' : ''
+				} max-[439px]:w-[90%] border border-[#0066FF] rounded-2xl py-[60px] backdrop-blur-[10px] flex flex-col items-center relative max-w-[924px] max-[510px]:py-[42px]`}
+			>
 				<div className='flex flex-col w-full px-[118px] max-[900px]:px-[70px] max-[510px]:p-[20px]'>
 					<div className='flex w-full justify-between max-[850px]:justify-center'>
 						<div className='max-[850px]:hidden'></div>

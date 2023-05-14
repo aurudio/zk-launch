@@ -1,15 +1,13 @@
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import wallet from '@/wallet.svg'
-// import { ethers } from 'ethers'
 import WalletConnectProvider from '@walletconnect/web3-provider'
 import Web3Modal from 'web3modal'
 
 const network = 'goerli'
-const infuraId = '95e1350b6b94480db9d2aa96eb1caac4'
-const contractAddress = '0xedC4550d7472B939fAAd6141C5C1990DC4d87F4c'
+const infuraId = '9d84b69dbe7a451ebd9a7d3fd01d65f4'
+const contractAddress = '0xF1F70F838eF52CBCFf9E2f3f58E1397c6b72D4A8'
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const abi = require('../../abi.json')
 
 const ConnectBtn = ({
@@ -22,6 +20,8 @@ const ConnectBtn = ({
 	openConnectModal,
 	authenticationStatus,
 	mounted,
+	blur,
+	setBlur,
 }) => {
 	const ready = mounted && authenticationStatus !== 'loading'
 	const connected =
@@ -30,7 +30,8 @@ const ConnectBtn = ({
 		chain &&
 		(!authenticationStatus || authenticationStatus === 'authenticated')
 
-	// eslint-disable-next-line @typescript-eslint/no-var-requires
+	setBlur(!connected)
+
 	const { ethers } = require('ethers')
 
 	const [web3Modal, setWeb3Modal] = useState(null)
@@ -43,7 +44,6 @@ const ConnectBtn = ({
 	const [inject, setInject] = useState(false)
 
 	useEffect(() => {
-		// Создаем Web3Modal
 		const providerOptions = {
 			walletconnect: {
 				package: WalletConnectProvider,
@@ -81,22 +81,19 @@ const ConnectBtn = ({
 
 	const buyTokens = async () => {
 		try {
-			// Получаем подключение к провайдеру
 			const instance = await web3Modal?.connect?.()
 			const provider = new ethers.providers.Web3Provider(instance)
 			const signer = provider.getSigner()
 			const contract = new ethers.Contract(contractAddress, abi, signer)
 
-			// Выполняем транзакцию на покупку токенов
-			const value = ethers.utils.parseEther(eth) //eth
-			const amount = zkl // zkl
+			const value = ethers.utils.parseEther(eth)
+			const amount = Math.ceil(zkl)
 			const overrides = {
 				value: value,
 			}
 			const tx = await contract.buyTokens(amount, overrides)
 			await tx.wait()
 
-			// Обновляем UI
 			setSuccess(true)
 			setFullfield(true)
 			setTimeout(() => {
