@@ -197,9 +197,9 @@ const MainSection = () => {
 									</div>
 									<p className='text-lg font-medium text-[#0870FF]'>$ {usd}</p>
 								</div>
-								<p className='min-[1150px]:hidden text-[#0870FF] font-medium'>
+								{/* <p className='min-[1150px]:hidden text-[#0870FF] font-medium'>
 									{ZKL} ZKL
-								</p>
+								</p> */}
 							</div>
 							<div className='flex flex-col border min-[1150px]:min-w-[492px] border-[#0870FF] rounded-lg py-3 pl-4 pr-6 '>
 								<div className='max-[1150px]:hidden flex justify-between flex-row'>
@@ -235,9 +235,9 @@ const MainSection = () => {
 									/>
 									<p className='text-lg font-medium'>1 ZKL = $0.05</p>
 								</div>
-								<p className='min-[1150px]:hidden text-[#0870FF] font-medium'>
+								{/* <p className='min-[1150px]:hidden text-[#0870FF] font-medium'>
 									{ZKL} ZKL
-								</p>
+								</p> */}
 							</div>
 						</div>
 						<ConnectButton.Custom>
