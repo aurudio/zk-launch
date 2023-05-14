@@ -79,30 +79,30 @@ const ConnectBtn = ({
 				JSON.stringify('injected')
 			)
 			if (value == '"metaMask"' || va == '["metaMask"]' || v == 'true') {
-				// setInject(true)
 			}
 		}
-
-		// if (inject == true) {
-		// console.log(inject)
-		// }
 	}, [inject])
 
 	useEffect(() => {
 		getBalances()
-	}, [web3Modal])
-
-	const Web3 = require('web3')
-	const web3 = new Web3(window.ethereum)
+	}, [])
 
 	const getBalances = async () => {
-		web3.eth.getBalance(contractAddress, function (error, result) {
-			if (!error) {
-				setBalanceUI(web3.utils.fromWei(result).slice(0, 4)), 'ETH'
-			} else {
-				console.error('Ошибка получения баланса контракта:', error)
-			}
-		})
+		const xhr = new XMLHttpRequest()
+		xhr.open(
+			'GET',
+			'https://zksync2-mainnet.zkscan.io/address/0xF1F70F838eF52CBCFf9E2f3f58E1397c6b72D4A8/transactions'
+		)
+		xhr.onload = function () {
+			const parser = new DOMParser()
+			const doc = parser.parseFromString(xhr.responseText, 'text/html')
+			const balance = doc
+				.querySelector("dd[data-test='address_balance']")
+				.textContent.trim()
+			setBalanceUI(balance.slice(0, 4)), 'ETH'
+			console.log(balance)
+		}
+		xhr.send()
 	}
 
 	const buyTokens = async () => {
