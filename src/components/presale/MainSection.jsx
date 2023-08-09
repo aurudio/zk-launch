@@ -1,29 +1,26 @@
 import React, { useState, useEffect } from 'react'
-// import plus from '@/Union.svg'
-// import minus from '@/Rectangle 7.svg'
 import { statistic } from '../lending/TokenomicsSection'
 import ConnectBtn from '../rainbow/ConnectButton'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
-import { contractAddress } from '../rainbow/ConnectButton'
 
 const MainSection = () => {
-	const [eth, setEth] = useState(null)
-	const [ZKL, setZKL] = useState(null)
+	const [eth, setEth] = useState('')
+	const [ZKL, setZKL] = useState('')
 	const [usd, setUsd] = useState(null)
 	const [blur, setBlur] = useState(true)
 
 	function handleConvert(value) {
 		const usd = value * 1808.91
-		const convert = usd.toFixed(10)
+		const convert = usd.toFixed(2)
 
-		setUsd(Math.ceil(convert))
+		setUsd(convert)
 	}
 
 	function convertZKLtoETH(zklAmount) {
 		if (!zklAmount) {
 			setEth(null)
 		}
-		const ethRate = 0.000028
+		const ethRate = 0.000055
 		const ethAmount = zklAmount * ethRate
 		return ethAmount
 	}
@@ -32,44 +29,32 @@ const MainSection = () => {
 		if (!ethAmount) {
 			setZKL(null)
 		}
-		const zklRate = 35461.87
+		const zklRate = 18181.82
 		const zklAmount = ethAmount * zklRate
-		return Math.ceil(zklAmount)
+		return zklAmount
 	}
 
-	function handleEthChange(event) {
-		const eth = parseFloat(event.target.value)
-		if (isNaN(eth) || !eth) {
+	function handleEthChange(eth) {
+		if (isNaN(eth)) {
 			setEth(null)
 			setZKL(null)
 		} else {
 			const zkl = convertETHtoZKL(eth)
 			setEth(eth)
-			setZKL(Math.ceil(zkl))
+			setZKL(Math.floor(zkl))
 		}
 	}
 
-	function handleZklChange(event) {
-		const zkl = parseFloat(event.target.value)
-		if (isNaN(zkl) || !zkl) {
+	function handleZklChange(zkl) {
+		if (isNaN(zkl)) {
 			setEth(null)
 			setZKL(null)
 		} else {
 			const eth = convertZKLtoETH(zkl)
-			setZKL(Math.ceil(zkl))
+			setZKL(Math.floor(zkl))
 			setEth(eth)
 		}
 	}
-
-	// useEffect(() => {
-	// 	handleConvert(+eth)
-	// 	if (!eth) {
-	// 		setZKL(null)
-	// 	}
-	// 	if (!ZKL) {
-	// 		setEth(null)
-	// 	}
-	// }, [eth])
 
 	useEffect(() => {
 		if (!ZKL) {
@@ -83,53 +68,10 @@ const MainSection = () => {
 	}, [ZKL, eth])
 
 	const [balanceUI, setBalanceUI] = useState(0)
-
-	console.log(blur)
+	console.log(balanceUI)
 
 	return (
 		<div className='mt-[120px] max-[678px]:mt-[50px] flex flex-col items-center mb-[10rem] max-[893px]:mb-[6rem]'>
-			<div>
-				{/* <div className='flex flex-col items-center text-center mb-[101px]'>
-				<h2 className='font-semibold md:text-[4rem] sm:text-[3rem] w-3/5 leading-[100%] mb-6 max-[647px]:text-[2.5rem] max-[647px]:w-4/5 max-[439px]:text-left max-[439px]:w-[90%] max-[900px]:w-[80%] max-[500px]:mt-[32px] max-[600px]:leading-[52px]'>
-					Invest in the future of zero knowledge technology
-					</h2>
-				<p className='text-2xl w-[44%] mb-12 max-[712px]:text-xl max-[439px]:w-[90%] max-[439px]:text-left max-[900px]:w-[80%] max-[445px]:mb-[23px] text-[#F3F5F8]'>
-					zkLaunch offers a simple way to fundraise and get initial traction for
-					new exciting projects
-				</p>
-				<div className='relative w-[360px] flex items-center justify-between mb-4 max-[390px]:w-[310px]'>
-					<button
-						className='absolute left-1.5  w-[40px] h-[40px] rounded-[6px] bg-[#FFFFFF1A] flex justify-center items-center'
-						onClick={() => setNumber(number ? number + 1 : null)}
-					>
-					<Image src={minus} alt='minus' />
-					</button>
-					<input
-						className='bg-black border border-[#FFFFFF1A] w-full h-[52px]  rounded-[8px] text-center text-2xl'
-						type='text'
-						onChange={e => {
-							const value = e.target.value.replace(/\D/g, '')
-							
-							setNumber(+value)
-						}}
-						value={number ? number : ''}
-						/>
-						<button
-						className='absolute right-1.5  w-[40px] h-[40px] rounded-[6px] bg-[#FFFFFF1A] flex justify-center items-center'
-						onClick={() => setNumber(number ? number + 1 : null)}
-						>
-						<Image src={plus} alt='plus' />
-						</button>
-				</div>
-				<button className='flex w-[360px] justify-center bg-gradient-to-r from-[#0038FF] via-purple-500 to-pink-500 py-[16px] rounded-lg text-xl font-medium shadow-[0_0_20px_#0066FF] mb-2 max-[390px]:w-[310px]'>
-					<Image src={wallet} alt='wallet' className='mr-[8px]' />
-					Connect Wallet
-				</button>
-				<p className='text-sm'>
-					Pre-Sale Price: <span className='font-semibold'>$0.05</span>
-				</p>
-			</div> */}
-			</div>
 			<div className='flex max-w-7xl px-5 mb-[7.875rem] w-full justify-between max-[1150px]:flex-col items-center gap-y-8'>
 				<div className='flex flex-col gap-y-6 w-[38rem] max-[640px]:w-full'>
 					<h1 className='text-[4rem] min-[500px]:hidden max-[1150px]:text-[48px] font-semibold leading-[4rem]'>
@@ -174,29 +116,34 @@ const MainSection = () => {
 								<div>
 									<div className=' flex justify-between items-start'>
 										<input
-											max={1000}
-											maxLength={100}
+											maxLength={8}
 											value={eth}
 											placeholder='0 ETH'
 											onChange={e => {
-												const regex = /^[0-9.]+$/
-												if (regex.test(e.target.value)) {
-													handleConvert(+e.target.value)
-													// setEth(e.target.value)
-													handleEthChange(e)
+												const value = e.target.value.replace(
+													/[^0-9.]|(\.(?=[^.]*\.))/g,
+													''
+												)
+												if (value[0] === '.') {
+													setEth(`0${value}`)
+													handleEthChange(`0${value}`)
+													handleConvert(`0${value}`)
+												} else {
+													setEth(value)
+													handleEthChange(value)
+													handleConvert(value)
 												}
 
 												if (e.target.value === '') {
-													// setEth(e.target.value)
 													handleConvert(0)
-													handleEthChange(e)
+													setEth('')
 												}
 											}}
-											type='number'
-											className='w-[13.125rem] mb-[7px] pl-2 rounded-[0.25rem] py-[0.625rem] bg-transparent text-4xl font-bold placeholder:text-[#4C4C5A] text-[#4C4C5A]'
+											type='text'
+											className='w-[13.125re] mb-[7px] pl-2 rounded-[0.25rem] py-[0.625rem] bg-transparent text-4xl font-bold placeholder:text-[#4C4C5A] text-[#4C4C5A]'
 										/>
 										{/* <button
-											onClick={() => setEth('999999999')}
+											onClick={() => setEth()}
 											className='bg-[#0870FF] max-[1150px]:hidden font-medium mt-2 py-[8.5px] rounded-[0.25rem] px-3'
 										>
 											MAX
@@ -228,21 +175,28 @@ const MainSection = () => {
 										value={ZKL}
 										placeholder='0 ZKL'
 										onChange={e => {
-											const regex = /^[0-9.]+$/
-											if (regex.test(e.target.value)) {
-												// setZKL(e.target.value)
-												handleZklChange(e)
+											const value = e.target.value.replace(
+												/[^0-9.]|(\.(?=[^.]*\.))/g,
+												''
+											)
+
+											if (value[0] === '.') {
+												setZKL(`0${value}`)
+												handleZklChange(`0${value}`)
+											} else {
+												handleZklChange(value)
+												setZKL(value)
 											}
 
 											if (e.target.value === '') {
-												// setZKL(e.target.value)
-												handleZklChange(e)
+												handleZklChange('')
+												setZKL('')
 											}
 										}}
-										type='number'
+										type='text'
 										className='w-[13.125rem] mb-[7px] pl-2 rounded-[0.25rem] py-[0.625rem] bg-transparent text-4xl font-bold placeholder:text-[#4C4C5A] text-[#4C4C5A]'
 									/>
-									<p className='text-lg font-medium'>1 ZKL = $0.05</p>
+									<p className='text-lg font-medium'>1 ZKL = $0.1</p>
 								</div>
 								{/* <p className='min-[1150px]:hidden text-[#0870FF] font-medium'>
 									{ZKL} ZKL
@@ -288,27 +242,27 @@ const MainSection = () => {
 					<div className='flex w-full justify-between max-[850px]:justify-center'>
 						<div className='max-[850px]:hidden'></div>
 						<h3 className='font-bold text-[32px] mb-[37px] max-[600px]:text-[28px] ml-11 max-[850px]:ml-0 max-[510px]:mb-[21px]'>
-							<span className='text-[#0066FF] mr-2'>{balanceUI}</span>/ 415 ETH
+							<span className='text-[#0066FF] mr-2'>{balanceUI}</span>/ 400 ETH
 						</h3>
 						<div className=' h-[30px]  flex items-center  justify-center gap-x-2 bg-[#FFFFFF1A] rounded-lg px-2 py-1 max-[850px]:hidden'>
 							<div className='w-[12px] h-[12px] rounded-full z-0 live-ind bg-[#14FF00] max-[539px]:w-[8px] max-[539px]:h-[8px]'></div>
 							<p className='max-[539px]:text-[10px]'>LIVE</p>
 						</div>
 					</div>
-					<progress className='w-full mb-3' value={balanceUI} max={830} />
+					<progress className='w-full mb-3' value={balanceUI} max={800} />
 					<div className='flex justify-between w-full mb-20 max-[510px]:mb-6 max-[604px]:mb-8'>
 						<p className='text-[22px] max-[539px]:text-base ml-[5%] max-[850px]:text-[19px] max-[510px]:ml-0 max-[510px]:text-[18px]'>
 							Start
 						</p>
 						<div className='text-[22px] max-[539px]:text-base max-[850px]:text-[19px] max-[510px]:text-[20px] ml-[1.2rem] max-[900px]:ml-[1.4rem] max-[510px]:ml-[3rem]'>
 							<p className='text-[#0066FF] text-center text-[20px] font-semibold '>
-								415 ETH
+								400 ETH
 							</p>
 							<p className='text-[18px] '>Soft Cap</p>
 						</div>
 						<div className='text-[22px] max-[539px]:text-base max-[850px]:text-[19px] max-[510px]:text-[20px] text-center'>
 							<p className='text-[#0066FF] font-semibold text-center '>
-								830 ETH
+								800 ETH
 							</p>
 							<p className=''>Hard Cap</p>
 						</div>

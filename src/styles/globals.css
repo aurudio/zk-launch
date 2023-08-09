@@ -111,6 +111,10 @@ progress::-moz-progress-bar {
 	.live-ind {
 		animation: 1.5s flashing linear infinite;
 	}
+
+	.roadmap__list-item:has(.true) {
+		border-color: #0066ff;
+	}
 }
 
 @keyframes flashing {

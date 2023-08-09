@@ -108,12 +108,15 @@ const RoadMap = () => {
 					{lists.map(item => (
 						<div
 							key={item.id}
-							className='flex flex-col border border-[#1E69FF] rounded-lg p-6 snap-start'
+							className='flex flex-col border roadmap__list-item rounded-lg p-6 snap-start'
 						>
 							<h4 className='roadmap__list-title mb-4'>{item.title}:</h4>
 							<ul className='flex flex-col w-52 gap-y-3'>
 								{item.list.map(elem => (
-									<li key={elem.id} className='flex items-start'>
+									<li
+										key={elem.id}
+										className={`flex items-start ${elem.status ? 'true' : ''}`}
+									>
 										<Image
 											src={elem.status ? checked : unchecked}
 											className={`${
