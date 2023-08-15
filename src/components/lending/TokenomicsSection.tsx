@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import diagram from '../../../public/Tokenomics.svg'
+import diagram_adaptive from '../../../public/diagram_adaptive.svg'
 import { useRouter } from 'next/router'
 
 export const statistic = [
@@ -32,7 +33,12 @@ const Tokenomics = () => {
 					<div className='flex items-center mb-20 gap-x-[66px] max-[902px]:flex-col'>
 						<Image
 							src={diagram}
-							className='w-[47vw] min-[1470px]:w-[690px] max-[902px]:w-[60vw] max-[902px]:mb-12 max-[503px]:w-[85vw]'
+							className='w-[47vw] max-[599px]:hidden min-[1470px]:w-[690px] max-[902px]:w-[60vw] max-[902px]:mb-12 max-[503px]:w-[85vw]'
+							alt=''
+						/>
+						<Image
+							src={diagram_adaptive}
+							className='w-[47vw] min-[599px]:hidden min-[1470px]:w-[690px] max-[902px]:w-[60vw] max-[902px]:mb-12 max-[503px]:w-[85vw]'
 							alt=''
 						/>
 						<div className='flex flex-col w-[520px] max-[902px]:w-[90%]'>
