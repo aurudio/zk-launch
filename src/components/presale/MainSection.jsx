@@ -140,7 +140,7 @@ const MainSection = () => {
 												}
 											}}
 											type='text'
-											className='w-[13.125re] mb-[7px] pl-2 rounded-[0.25rem] py-[0.625rem] bg-transparent text-4xl font-bold placeholder:text-[#4C4C5A] text-[#4C4C5A]'
+											className='w-[13.125rem] mb-[7px] pl-2 rounded-[0.25rem] py-[0.625rem] bg-transparent text-4xl font-bold placeholder:text-[#4C4C5A] text-[#4C4C5A]'
 										/>
 										{/* <button
 											onClick={() => setEth()}
