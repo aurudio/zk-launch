@@ -4,9 +4,9 @@ import Image from 'next/image'
 import stars from '@/zkLaunch-stars-bg 1.png'
 import Tokenomics from '@/components/lending/TokenomicsSection'
 // import Investors from '@/components/lending/InvestorsSection'
+import MainSection from '@/components/presale/MainSection'
 import GlobalCommunity from '@/components/lending/GlobalCommSection'
 import { NextPage } from 'next'
-import MainSection from '@/components/presale/MainSection'
 
 const PreSale: NextPage = () => {
 	return (
